@@ -1,0 +1,16 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["react-app", "eslint:recommended"],
+  "rules": {
+    "no-var": "error",
+    "no-multiple-empty-lines": "error",
+    "no-console": ["error", { "allow": ["warn", "error", "info"] }],
+    "eqeqeq": "error",
+    "dot-notation": "error",
+    "no-unused-vars": "error"
+  }
+}
