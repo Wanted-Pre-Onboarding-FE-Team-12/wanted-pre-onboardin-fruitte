@@ -1,0 +1,692 @@
+[
+  {
+    "id": 1,
+    "imgUrl": "https://images.unsplash.com/photo-1657310217322-0ed7c60d4354?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+    "name": "거창 오가네체리자두 3kg 한 상자",
+    "price": 36000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 0.7,
+    "origin": "서울시",
+    "option": [
+      {
+        "id": 1,
+        "name": "3kg",
+        "price": 36000
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "imgUrl": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "name": "무농약 GAP 인증 국산 청양 블루베리 2kg,4kg,5kg",
+    "price": 120000,
+    "is_best": true,
+    "is_sold_out": true,
+    "is_sale": true,
+    "sale_price": 0.5,
+    "origin": "경기도",
+    "option": [
+      {
+        "id": 1,
+        "name": "2kg",
+        "price": 120000
+      },
+      {
+        "id": 2,
+        "name": "4kg",
+        "price": 150000
+      },
+      {
+        "id": 3,
+        "name": "5kg",
+        "price": 200000
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "imgUrl": "https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+    "name": "국산 강원도 화천 생 아스파라거스 1kg, 2kg",
+    "price": 40000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 0.5,
+    "origin": "강원도",
+    "option": [
+      {
+        "id": 1,
+        "name": "1kg",
+        "price": 40000
+      },
+      {
+        "id": 2,
+        "name": "2kg",
+        "price": 76000
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "imgUrl": "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "name": "목감기에 좋은 건더기 없는 프리미엄 수제 착즙 유자청",
+    "price": 15000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 0.9,
+    "origin": "충청북도",
+    "option": [
+      {
+        "id": 1,
+        "name": "500g",
+        "price": 20000
+      },
+      {
+        "id": 2,
+        "name": "1kg",
+        "price": 38000
+      },
+      {
+        "id": 3,
+        "name": "2kg",
+        "price": 20000
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "imgUrl": "https://images.unsplash.com/photo-1528825871115-3581a5387919?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
+    "name": "돌다리농원 100% 예산 순수 생사과즙 100포",
+    "price": 60000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 0.9,
+    "origin": "충청남도",
+    "option": [
+      {
+        "id": 1,
+        "name": "100포",
+        "price": 60000
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "imgUrl": "https://images.unsplash.com/photo-1547514701-42782101795e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "name": "반려동물과자 아기과자 동결건조",
+    "price": 36000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 0.8,
+    "origin": "인천광역시",
+    "option": [
+      {
+        "id": 1,
+        "name": "3kg",
+        "price": 36000
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "imgUrl": "https://images.unsplash.com/photo-1517282009859-f000ec3b26fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "name": "100% 제주  감귤 주스",
+    "price": 120000,
+    "is_best": true,
+    "is_sold_out": true,
+    "is_sale": true,
+    "sale_price": 0.4,
+    "origin": "제주도",
+    "option": [
+      {
+        "id": 1,
+        "name": "2kg",
+        "price": 120000
+      },
+      {
+        "id": 2,
+        "name": "4kg",
+        "price": 190000
+      },
+      {
+        "id": 3,
+        "name": "5kg",
+        "price": 210000
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "imgUrl": "https://images.unsplash.com/photo-1457296898342-cdd24585d095?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+    "name": "물에 타먹는 제주 수제 감귤칩",
+    "price": 40000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 0.5,
+    "origin": "전라북도",
+    "option": [
+      {
+        "id": 1,
+        "name": "1kg",
+        "price": 40000
+      },
+      {
+        "id": 2,
+        "name": "2kg",
+        "price": 75000
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "imgUrl": "https://images.unsplash.com/photo-1657310217094-2214abf4fd88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "name": "청양 전통 수제 간장",
+    "price": 15000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": false,
+    "sale_price": 1,
+    "origin": "경상남도",
+    "option": [
+      {
+        "id": 1,
+        "name": "500g",
+        "price": 15000
+      },
+      {
+        "id": 2,
+        "name": "1kg",
+        "price": 29000
+      },
+      {
+        "id": 3,
+        "name": "2kg",
+        "price": 35000
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "imgUrl": "https://images.unsplash.com/photo-1525607551316-4a8e16d1f9ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=710&q=80",
+    "name": "청양 전통 수제 간장",
+    "price": 60000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": false,
+    "sale_price": 1,
+    "origin": "경상북도",
+    "option": [
+      {
+        "id": 1,
+        "name": "3kg",
+        "price": 60000
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "imgUrl": "https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+    "name": "제주 재래식 메주로 띄운 수제 된장",
+    "price": 36000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 0.8,
+    "origin": "서울특별시",
+    "option": [
+      {
+        "id": 1,
+        "name": "3kg",
+        "price": 36000
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "imgUrl": "https://images.unsplash.com/photo-1445282768818-728615cc910a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "name": "구기자 발효 수제 고추장",
+    "price": 120000,
+    "is_best": true,
+    "is_sold_out": true,
+    "is_sale": false,
+    "sale_price": 0.5,
+    "origin": "인천광역시",
+    "option": [
+      {
+        "id": 1,
+        "name": "2kg",
+        "price": 120000
+      },
+      {
+        "id": 2,
+        "name": "4kg",
+        "price": 240000
+      },
+      {
+        "id": 3,
+        "name": "5kg",
+        "price": 270000
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "imgUrl": "https://images.unsplash.com/photo-1553395572-0ef353a212bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
+    "name": "순수 자연의 맛 국내산 냉동 나물 모둠",
+    "price": 40000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 0.5,
+    "origin": "경기도",
+    "option": [
+      {
+        "id": 1,
+        "name": "1kg",
+        "price": 40000
+      },
+      {
+        "id": 2,
+        "name": "2kg",
+        "price": 70000
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "imgUrl": "https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+    "name": "설향 동결건조 건딸기",
+    "price": 15000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 0.9,
+    "origin": "강원도",
+    "option": [
+      {
+        "id": 1,
+        "name": "500g",
+        "price": 15000
+      },
+      {
+        "id": 2,
+        "name": "1kg",
+        "price": 30000
+      },
+      {
+        "id": 3,
+        "name": "2kg",
+        "price": 45000
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "imgUrl": "https://images.unsplash.com/photo-1570586437263-ab629fccc818?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+    "name": "황토 케이멜론",
+    "price": 60000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": false,
+    "sale_price": 1,
+    "origin": "인천광역시",
+    "option": [
+      {
+        "id": 1,
+        "name": "100포",
+        "price": 6000
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "imgUrl": "https://images.unsplash.com/photo-1567375698348-5d9d5ae99de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+    "name": "통째로먹는 인삼 새싹삼",
+    "price": 36000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 29000,
+    "origin": "경상남도",
+    "option": [
+      {
+        "id": 1,
+        "name": "3kg",
+        "price": 29000
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "imgUrl": "https://images.unsplash.com/photo-1657310217322-0ed7c60d4354?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+    "name": "남부황칠 뿌리",
+    "price": 120000,
+    "is_best": true,
+    "is_sold_out": true,
+    "is_sale": true,
+    "sale_price": 52000,
+    "origin": "경상북도",
+    "option": [
+      {
+        "id": 1,
+        "name": "2kg",
+        "price": 52000
+      },
+      {
+        "id": 2,
+        "name": "4kg",
+        "price": 99000
+      },
+      {
+        "id": 3,
+        "name": "5kg",
+        "price": 148000
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "imgUrl": "https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+    "name": "오색향미 찹쌀",
+    "price": 40000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": false,
+    "sale_price": 1,
+    "origin": "제주도",
+    "option": [
+      {
+        "id": 1,
+        "name": "1kg",
+        "price": 40000
+      },
+      {
+        "id": 2,
+        "name": "2kg",
+        "price": 80000
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "imgUrl": "https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80",
+    "name": "유기농 백미",
+    "price": 15000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": false,
+    "sale_price": 1,
+    "origin": "경상남도",
+    "option": [
+      {
+        "id": 1,
+        "name": "500g",
+        "price": 15000
+      },
+      {
+        "id": 2,
+        "name": "1kg",
+        "price": 29000
+      },
+      {
+        "id": 3,
+        "name": "2kg",
+        "price": 45000
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "imgUrl": "https://images.unsplash.com/photo-1595855759920-86582396756a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
+    "name": "나주 행운배 선물세트",
+    "price": 60000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 57000,
+    "origin": "제주도",
+    "option": [
+      {
+        "id": 1,
+        "name": "100포",
+        "price": 57000
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "imgUrl": "https://images.unsplash.com/photo-1624436518795-a2c1c77d6896?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+    "name": "거창 오가네체리자두 3kg 한 상자",
+    "price": 36000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 0.9,
+    "origin": "전라남도",
+    "option": [
+      {
+        "id": 1,
+        "name": "3kg",
+        "price": 36000
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "imgUrl": "https://images.unsplash.com/photo-1501746877-14782df58970?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+    "name": "무농약 GAP 인증 국산 청양 블루베르 2kg,4kg,5kg",
+    "price": 120000,
+    "is_best": true,
+    "is_sold_out": true,
+    "is_sale": true,
+    "sale_price": 0.7,
+    "origin": "전라북도",
+    "option": [
+      {
+        "id": 1,
+        "name": "2kg",
+        "price": 120000
+      },
+      {
+        "id": 2,
+        "name": "4kg",
+        "price": 200000
+      },
+      {
+        "id": 3,
+        "name": "5kg",
+        "price": 250000
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "imgUrl": "https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+    "name": "국산 강원도 화천 생 아스파라거스 1kg, 2kg",
+    "price": 40000,
+    "is_best": false,
+    "is_sold_out": true,
+    "is_sale": false,
+    "sale_price": 1,
+    "origin": "경상남도",
+    "option": [
+      {
+        "id": 1,
+        "name": "1kg",
+        "price": 40000
+      },
+      {
+        "id": 2,
+        "name": "2kg",
+        "price": 40000
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "imgUrl": "https://images.unsplash.com/photo-1581074817932-af423ba4566e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+    "name": "목감기에 좋은 건더기 없는 프리미엄 수제 착즙 유자청",
+    "price": 15000,
+    "is_best": false,
+    "is_sold_out": false,
+    "is_sale": false,
+    "sale_price": 1,
+    "origin": "충청북도",
+    "option": [
+      {
+        "id": 1,
+        "name": "500g",
+        "price": 15000
+      },
+      {
+        "id": 2,
+        "name": "1kg",
+        "price": 29000
+      },
+      {
+        "id": 3,
+        "name": "2kg",
+        "price": 35000
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "imgUrl": "https://images.unsplash.com/photo-1598023697853-acbf6429d3c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "name": "돌다리농원 100% 예산 순수 생사과즙 100포",
+    "price": 60000,
+    "is_best": true,
+    "is_sold_out": true,
+    "is_sale": false,
+    "sale_price": 1,
+    "origin": "충청남도",
+    "option": [
+      {
+        "id": 1,
+        "name": "100포",
+        "price": 60000
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "imgUrl": "https://images.unsplash.com/photo-1598233899757-17b2dea77bd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "name": "거창 오가네체리자두 3kg 한 상자",
+    "price": 36000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 0.9,
+    "origin": "충청남도",
+    "option": [
+      {
+        "id": 1,
+        "name": "3kg",
+        "price": 36000
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "imgUrl": "https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+    "name": "무농약 GAP 인증 국산 청양 블루베리 2kg,4kg,5kg",
+    "price": 120000,
+    "is_best": true,
+    "is_sold_out": true,
+    "is_sale": true,
+    "sale_price": 0.8,
+    "origin": "충청남도",
+    "option": [
+      {
+        "id": 1,
+        "name": "2kg",
+        "price": 120000
+      },
+      {
+        "id": 2,
+        "name": "4kg",
+        "price": 200000
+      },
+      {
+        "id": 3,
+        "name": "5kg",
+        "price": 220000
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "imgUrl": "https://images.unsplash.com/photo-1541344999736-83eca272f6fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "name": "국산 강원도 화천 생 아스파라거스 1kg, 2kg",
+    "price": 40000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": false,
+    "sale_price": 40000,
+    "origin": "충청남도",
+    "option": [
+      {
+        "id": 1,
+        "name": "1kg",
+        "price": 40000
+      },
+      {
+        "id": 2,
+        "name": "2kg",
+        "price": 78000
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "imgUrl": "https://images.unsplash.com/photo-1616203095392-7b3afa9ca518?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "name": "목감기에 좋은 건더기 없는 프리미엄 수제 착즙 유자청",
+    "price": 15000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": true,
+    "sale_price": 0.3,
+    "origin": "충청남도",
+    "option": [
+      {
+        "id": 1,
+        "name": "500g",
+        "price": 15000
+      },
+      {
+        "id": 2,
+        "name": "1kg",
+        "price": 30000
+      },
+      {
+        "id": 3,
+        "name": "2kg",
+        "price": 50000
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "imgUrl": "https://images.unsplash.com/photo-1570197679264-d37000973d4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
+    "name": "돌다리농원 100% 예산 순수 생사과즙 100포",
+    "price": 60000,
+    "is_best": true,
+    "is_sold_out": false,
+    "is_sale": false,
+    "sale_price": 1,
+    "origin": "충청남도",
+    "option": [
+      {
+        "id": 1,
+        "name": "100포",
+        "price": 60000
+      }
+    ]
+  }
+]
