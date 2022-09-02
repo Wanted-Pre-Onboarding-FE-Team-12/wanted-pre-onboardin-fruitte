@@ -1,7 +1,16 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Admin from '@pages/Admin';
+import List from '@pages/List';
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/" element={<List />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
