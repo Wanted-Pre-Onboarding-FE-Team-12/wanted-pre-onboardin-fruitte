@@ -7,14 +7,14 @@ import Footer from '@components/Footer';
 import GlobalStyles from '@styles/globalStyle';
 import theme from '@styles/theme';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isAdmin }) => {
   return (
     <ThemeProvider theme={theme}>
       <Navbar />
 
       <Wrapper>{children}</Wrapper>
 
-      <Footer />
+      {!isAdmin && <Footer />}
       <GlobalStyles />
     </ThemeProvider>
   );

@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import variables from '@styles/theme';
 
-/** 결제하기 페이지 */
+/**
+ * 결제하기 페이지
+ * */
 export const Container = styled.div`
   background-color: pink;
   width: 90%;
@@ -12,7 +14,13 @@ export const Title = styled.h1`
   font-size: ${variables.sideSpace.contentMedium};
 `;
 
-/** 주문 상품 정보 */
+/**
+ * 주문 상품 정보
+ * */
+export const ProductImage = styled.img`
+  width: 100px;
+  height: 100px;
+`;
 
 /** 주문자 정보 */
 

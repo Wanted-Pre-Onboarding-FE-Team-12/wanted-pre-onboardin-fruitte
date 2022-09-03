@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Links from '@components/Links';
+import { userLinks } from '@utils/links';
 
 // CSS
 import { Wrapper, NavLogo } from './style';
@@ -15,7 +16,7 @@ const Navbar = () => {
           alt="logo"
         />
       </NavLogo>
-      <Links />
+      <Links styleClass="nav-links" linkData={userLinks} />
     </Wrapper>
   );
 };
