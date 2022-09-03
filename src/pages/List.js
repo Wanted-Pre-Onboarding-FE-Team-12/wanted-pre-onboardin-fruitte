@@ -1,3 +1,4 @@
+import Layout from '@layouts/index';
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
@@ -20,19 +21,20 @@ const List = () => {
         console.error(e); // 에러표시
       });
   };
-  console.info(introduceComment.data);
 
   return (
-    <ListContainer>
-      {introduceComment && (
-        <>
-          <div>{introduceComment[0]}</div>
-          <IntroduceContent comment={introduceComment[0]}></IntroduceContent>
-          <IntroduceContent comment={introduceComment[1]}></IntroduceContent>
-          <BlogLinkContent>1234</BlogLinkContent>
-        </>
-      )}
-    </ListContainer>
+    <Layout>
+      <ListContainer>
+        {introduceComment && (
+          <>
+            <div>{introduceComment[0]}</div>
+            <IntroduceContent comment={introduceComment[0]}></IntroduceContent>
+            <IntroduceContent comment={introduceComment[1]}></IntroduceContent>
+            <BlogLinkContent>1234</BlogLinkContent>
+          </>
+        )}
+      </ListContainer>
+    </Layout>
   );
 };
 
