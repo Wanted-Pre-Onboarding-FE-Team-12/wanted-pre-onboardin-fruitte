@@ -1,38 +1,15 @@
 import Layout from '@layouts/index';
 import React from 'react';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
 import IntroduceContent from '@components/introduceContent';
 import styled from 'styled-components';
 
 const List = () => {
-  const [introduceComment, setIntroduceComment] = useState([]);
-
-  useEffect(() => {
-    getIntroduceData();
-  }, []);
-
-  const getIntroduceData = async () => {
-    axios
-      .get('http://localhost:3000/data/introduce_comment.json')
-      .then(data => setIntroduceComment(data))
-      .catch(e => {
-        // API 호출이 실패한 경우
-        console.error(e); // 에러표시
-      });
-  };
-
   return (
     <Layout>
       <ListContainer>
-        {introduceComment && (
-          <>
-            <div>{introduceComment[0]}</div>
-            <IntroduceContent comment={introduceComment[0]}></IntroduceContent>
-            <IntroduceContent comment={introduceComment[1]}></IntroduceContent>
-            <BlogLinkContent>1234</BlogLinkContent>
-          </>
-        )}
+        <IntroduceContent name="comment_header"></IntroduceContent>
+        <IntroduceContent name="comment_footer"></IntroduceContent>
+        <BlogLinkContent></BlogLinkContent>
       </ListContainer>
     </Layout>
   );
