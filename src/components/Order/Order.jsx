@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 // import { useRecoilValue } from 'recoil';
 import { useDaumPostcodePopup as usePostCode } from 'react-daum-postcode';
 // import { order } from '@state/state';
@@ -64,70 +64,60 @@ const Order = () => {
   const [address, setAddress] = useState('');
   // 상세주소 상태값
   const [extraAddress, setExtraAddress] = useState('');
+  // 배송 메모 상태값
+  const [orderMessage, setOrderMessage] = useState('');
+  // 배송 메모 사용자 추가 상태값
+  const [orderUserMessage, setUserOrderMessage] = useState('');
 
   // 주문자 이름 update 함수
-  const handleUpdateName = e => {
-    setName(e.target.value);
-  };
+  const handleUpdateName = useCallback(e => setName(e.target.value), []);
 
   // 주문자 연락처 update 함수
-  const handleUpdateContactNumber = e => {
-    setContactNumber(e.target.value);
-  };
+  const handleUpdateContactNumber = useCallback(e => setContactNumber(e.target.value), []);
 
   // 주문자 이메일 update 함수
-  const handleUpdateEmail = e => {
-    setEmail(e.target.value);
-  };
+  const handleUpdateEmail = useCallback(e => setEmail(e.target.value), []);
 
   // 주문자 정보 동일 update 함수
-  const handleUpdateSameOrderPerson = async () => {
-    await setOrderSame(!orderSame);
-  };
-
-  // 주문자 정보 동일 여부에 따라 배송 정보 수령인/연락처 핸들링하는 함수
-  useEffect(
-    e => {
-      const handleUpdateSameOrderInfo = e => {
-        // orderSame이 true이면 동일
-        if (orderSame) {
-          setOrderPerson(name);
-          setOrderContactNumber(contactNumber);
-        }
-        // orderSame이 false이면 다른 것
-        else {
-          setOrderPerson('');
-          setOrderContactNumber('');
-        }
-      };
-      handleUpdateSameOrderInfo();
-    },
-    [orderSame],
-  );
+  const handleUpdateSameOrderPerson = useCallback(() => setOrderSame(!orderSame), [orderSame]);
 
   // 직접 배송 수령인, 연락처 넣는 경우
-  const handleOrderInfo = e => {
+  const handleOrderInfo = useCallback(e => {
     const { id } = e.target;
     if (id === 'recipient-name') {
       setOrderPerson(e.target.value);
     } else if (id === 'recipient-tel') {
       setOrderContactNumber(e.target.value);
     }
-  };
+  }, []);
 
   // 우편번호 update 함수
-  const handleUpdateZipCode = code => {
-    setZipCode(code);
-  };
+  const handleUpdateZipCode = useCallback(code => setZipCode(code), []);
 
   // 주소 update 함수
-  const handleUpdateAddress = address => {
-    setAddress(address);
-  };
+  const handleUpdateAddress = useCallback(address => setAddress(address), []);
 
   // 상세주소 update 함수
-  const handleUpdateExtraAddress = e => {
-    setExtraAddress(e.target.value);
+  const handleUpdateExtraAddress = useCallback(e => setExtraAddress(e.target.value), []);
+
+  // 배송 메모 update 함수
+  const handleUpdateOrderMessage = e => {
+    const orderMessageType = e.target.value;
+
+    // 선택한 option 값 orderType에 업데이트
+    if (orderMessageType === 'custom') {
+      // 사용자 직접 입력일 경우, 입력한 input 값 업데이트 필요 -> orderUserMessage에
+      setOrderMessage(orderMessageType);
+    } else {
+      setOrderMessage(orderMessageType);
+    }
+  };
+
+  // 배송 메모 사용자 추가 update 함수
+  const handleUpdateOrderUserMessage = e => {
+    console.log(e.target.value);
+    const customMessage = e.target.value;
+    setUserOrderMessage(customMessage);
   };
 
   /**
@@ -148,7 +138,7 @@ const Order = () => {
   // api script 주소 넣어서 함수 가져오기
   const handleFindZipCode = usePostCode(ScriptUrl);
 
-  const handleComplete = data => {
+  const handleComplete = useCallback(data => {
     // data가 있다면?
     if (data) {
       // data에서 필요한 값들 가져오기
@@ -165,12 +155,24 @@ const Order = () => {
         handleUpdateAddress(jibunAddress);
       }
     }
-  };
+  }, []);
 
   // 주소 검색 서비스 함수
-  const handleClick = () => {
-    handleFindZipCode({ onComplete: handleComplete });
-  };
+  const handleClick = useCallback(() => handleFindZipCode({ onComplete: handleComplete }), []);
+
+  // 주문자 정보 동일 여부에 따라 배송 정보 수령인/연락처 핸들링하는 함수
+  useEffect(() => {
+    // orderSame이 true이면 동일
+    if (orderSame) {
+      setOrderPerson(name);
+      setOrderContactNumber(contactNumber);
+    }
+    // orderSame이 false이면 다른 것
+    else {
+      setOrderPerson('');
+      setOrderContactNumber('');
+    }
+  }, [orderSame]);
 
   return (
     <Layout>
@@ -188,7 +190,7 @@ const Order = () => {
                 required
                 id="user-name"
                 onChange={handleUpdateName}
-                value={name === null ? '' : name}
+                value={name ?? ''}
               />
               <label htmlFor="user-tel">연락처</label>
               <input
@@ -196,24 +198,19 @@ const Order = () => {
                 required
                 id="user-tel"
                 onChange={handleUpdateContactNumber}
-                value={contactNumber === null ? '' : contactNumber}
+                value={contactNumber ?? ''}
               />
             </div>
             <div>
               <label htmlFor="email">이메일</label>
-              <input
-                type="email"
-                id="email"
-                onChange={handleUpdateEmail}
-                value={email === null ? '' : email}
-              />
+              <input type="email" id="email" onChange={handleUpdateEmail} value={email ?? ''} />
             </div>
           </div>
           {/** 배송 정보 */}
           <div>
             <SubTitle>배송 정보</SubTitle>
             <div>
-              <input type="checkbox" id="address-check" onClick={handleUpdateSameOrderPerson} />
+              <input type="checkbox" id="address-check" onChange={handleUpdateSameOrderPerson} />
               <label htmlFor="address-check">주문자 정보와 동일</label>
             </div>
             <div>
@@ -222,7 +219,7 @@ const Order = () => {
                 type="text"
                 required
                 id="recipient-name"
-                value={orderPerson === null ? '' : orderPerson}
+                value={orderPerson ?? ''}
                 onChange={handleOrderInfo}
               />
               <label htmlFor="recipient-tel">연락처</label>
@@ -230,50 +227,64 @@ const Order = () => {
                 type="tel"
                 required
                 id="recipient-tel"
-                value={orderContactNumber === null ? '' : orderContactNumber}
+                value={orderContactNumber ?? ''}
                 onChange={handleOrderInfo}
               />
             </div>
             <div>
-              <div>
+              <div onClick={handleClick}>
                 <input
                   type="text"
                   placeholder="우편번호"
-                  onClick={handleClick}
-                  value={zipCode === null ? '' : zipCode}
+                  value={zipCode ?? ''}
                   style={{ width: '200px' }}
+                  readOnly
                 />
-                <button type="button" onClick={handleClick}>
-                  주소 찾기
-                </button>
+                <button type="button">주소 찾기</button>
               </div>
               <div>
-                <input
-                  type="text"
-                  placeholder="주소"
-                  onClick={handleClick}
-                  value={address === null ? '' : address}
-                  style={{ width: '200px' }}
-                />
+                <div onClick={handleClick}>
+                  <input
+                    type="text"
+                    placeholder="주소"
+                    value={address ?? ''}
+                    style={{ width: '200px' }}
+                    readOnly
+                  />
+                </div>
                 <input
                   type="text"
                   placeholder="상세 주소"
-                  onChange={e => handleUpdateExtraAddress(e)}
-                  value={extraAddress === null ? '' : extraAddress}
+                  onChange={handleUpdateExtraAddress}
+                  value={extraAddress ?? ''}
                   style={{ width: '200px' }}
                 />
               </div>
             </div>
-            {/* <div>
+            <div>
               <label htmlFor="message-select">배송 메모</label>
-              <select name="messages" id="message-select">
-                <option value="">-- 배송메모를 선택해 주세요 :) --</option>
-                <option value="pre">배송 전에 미리 연락 바랍니다.</option>
-                <option value="office">부재시 경비실에 맡겨주세요.</option>
-                <option value="call">부재시 전화나 문자를 남겨주세요.</option>
-                <option value="directInput">직접 입력</option>
-              </select>
-            </div> */}
+              <div>
+                <select name="messages" id="message-select" onChange={handleUpdateOrderMessage}>
+                  <option value="">-- 배송메모를 선택해 주세요 :) --</option>
+                  <option value="배송 전에 미리 연락 바랍니다.">
+                    배송 전에 미리 연락 바랍니다.
+                  </option>
+                  <option value="부재시 경비실에 맡겨주세요.">부재시 경비실에 맡겨주세요.</option>
+                  <option value="부재시 전화나 문자를 남겨주세요.">
+                    부재시 전화나 문자를 남겨주세요.
+                  </option>
+                  <option value="custom">직접 입력</option>
+                </select>
+              </div>
+            </div>
+            {orderMessage === 'custom' && (
+              <input
+                type="text"
+                placeholder="배송메모를 입력해 주세요."
+                value={orderUserMessage}
+                onChange={handleUpdateOrderUserMessage}
+              />
+            )}
           </div>
         </div>
         <div>
