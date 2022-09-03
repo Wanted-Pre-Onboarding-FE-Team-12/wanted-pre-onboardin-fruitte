@@ -15,6 +15,7 @@ const variables = {
     large: '4rem',
     small: '2rem',
     contentLarge: '4rem',
+    contentMedium: '3rem',
     contentSmall: '2rem',
   },
 
