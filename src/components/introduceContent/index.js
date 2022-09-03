@@ -14,7 +14,7 @@ const IntroduceContent = props => {
         <div>{COMMENT_LIST[name].title}</div>
       </Title>
       {COMMENT_LIST[name].comment.map(data => (
-        <Comment>{data.comment}</Comment>
+        <Comment key={data.id}>{data.comment}</Comment>
       ))}
     </ContentContainer>
   );

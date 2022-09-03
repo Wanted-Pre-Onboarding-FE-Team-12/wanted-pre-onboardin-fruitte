@@ -1,6 +1,8 @@
 import Layout from '@layouts/index';
 import React from 'react';
 import IntroduceContent from '@components/introduceContent';
+import IntroduceLink from '@components/IntroduceLink';
+import CardList from '@components/CardList';
 import styled from 'styled-components';
 
 const List = () => {
@@ -8,8 +10,9 @@ const List = () => {
     <Layout>
       <ListContainer>
         <IntroduceContent name="comment_header"></IntroduceContent>
+        <CardList></CardList>
         <IntroduceContent name="comment_footer"></IntroduceContent>
-        <BlogLinkContent></BlogLinkContent>
+        <IntroduceLink></IntroduceLink>
       </ListContainer>
     </Layout>
   );
@@ -20,14 +23,6 @@ const ListContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-`;
-
-const BlogLinkContent = styled.div`
-  display: flex;
-  max-width: 90%;
-  min-width: 1080px;
-  text-align: center;
-  height: 100%;
 `;
 
 export default List;
