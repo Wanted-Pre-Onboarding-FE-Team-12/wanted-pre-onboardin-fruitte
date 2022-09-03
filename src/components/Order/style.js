@@ -13,7 +13,7 @@ export const SubTitle = styled.h1`
  * */
 export const Container = styled.div`
   background-color: pink;
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: row;
 `;

@@ -16,11 +16,15 @@ import { Container, Title, SubTitle } from './style';
  */
 
 /**
- * 1. 결제하기 페이지에서는 주문하려는 상품의 정보를 받아온다.
- * 2. 주문자 정보에서 이름, 연락처, 이메일의 정보를 입력받는다.
- * 3. 배송 정보에서 배송 정보를 입력받는다.
- * 4. 주문 요약에서는 1의 정보를 요약해준다.
+ * 1. 결제하기 페이지에서는 주문하려는 상품의 정보를 받아온다. (o)
+ * 2. 주문자 정보에서 이름, 연락처, 이메일의 정보를 입력받는다. (o)
+ * 3. 배송 정보에서 배송 정보를 입력받는다. (o)
+ * 4. 주문 요약에서는 1의 정보를 요약해준다. (o)
  * 5. 결제수단은 신용카드 무통장 입금을 선택할 수 있다.
+ *  5-1. 무통장 입금 클릭시 입금자명 입력 받아야 한다. (미 입력시 주문자 명)
+ *  5-2. 현금 영수증 신청 체크박스 클릭 시
+ *   5-2-1. 소득 공제용/지출 증빙용에 따라 입력 받는 값 저장
+ * 6. 결제 전체 동의 박스에서 약관 보기 클릭 시 모달로 약관 보여주기
  *
  * 결제하기 버튼을 누르면 결제 정보를 state로 저장해야 된다.
  *  상품명
@@ -53,7 +57,7 @@ const Order = () => {
   // 주문자 이메일 상태값
   const [email, setEmail] = useState('');
   // 주문자 정보 동일 상태값
-  const [orderSame, setOrderSame] = useState(false);
+  const [isOrderSame, setIsOrderSame] = useState(false);
   // 배송 수령인 상태값
   const [orderPerson, setOrderPerson] = useState('');
   // 배송 연락처 상태값
@@ -68,6 +72,19 @@ const Order = () => {
   const [orderMessage, setOrderMessage] = useState('');
   // 배송 메모 사용자 추가 상태값
   const [orderUserMessage, setUserOrderMessage] = useState('');
+  // 결제 수단 상태값 (신용카드, 무통장입금)
+  const [paymentType, setPaymentType] = useState('creditCard'); // 무통장 입금 cashDeposit
+  // 무통장 입금 선택 시 입금자명 상태값
+  const [depositor, setDepositor] = useState(''); // 미입력시 주문자명
+  // 현금 영수증 신청 상태값
+  const [isDeposit, setIsDeposit] = useState(false);
+  // 소득 공제 | 지출 증빙 여부 상태값
+  const [cashReceipt, setCashReceipt] = useState('incomeDeduction'); // 지출증빙 proofExpenditure
+  // 소득 공제 | 지출 증빙 선택 시 휴대전화 번호 | 사업자 번호
+  const [paymentNumber, setPaymentNumber] = useState('');
+
+  // '국민은행 527837-01-004676 주식회사 로컬앤라이프'
+  // '주문 후 72시간 동안 미입금시 자동 취소됩니다.'
 
   // 주문자 이름 update 함수
   const handleUpdateName = useCallback(e => setName(e.target.value), []);
@@ -79,7 +96,10 @@ const Order = () => {
   const handleUpdateEmail = useCallback(e => setEmail(e.target.value), []);
 
   // 주문자 정보 동일 update 함수
-  const handleUpdateSameOrderPerson = useCallback(() => setOrderSame(!orderSame), [orderSame]);
+  const handleUpdateSameOrderPerson = useCallback(
+    () => setIsOrderSame(!isOrderSame),
+    [isOrderSame],
+  );
 
   // 직접 배송 수령인, 연락처 넣는 경우
   const handleOrderInfo = useCallback(e => {
@@ -118,6 +138,28 @@ const Order = () => {
     const customMessage = e.target.value;
     setUserOrderMessage(customMessage);
   }, []);
+
+  // 결제수단 상태 update 함수
+  const handleUpdatePaymentType = useCallback(e => setPaymentType(e.target.id), []);
+
+  // 무통장입금 - 입금자명 update 함수
+  const handleUpdateDepositor = useCallback(e => setDepositor(e.target.value), []);
+
+  // 현금 영수증 신청 체크 update 함수
+  const handleUpdateDeposit = () => {
+    setIsDeposit(!isDeposit);
+  };
+
+  // 현금 영수증 신청 시 소득 공제용 | 지출 증빙용 선택 update 함수
+  const handleUpdateCashReceipt = e => {
+    setCashReceipt(e.target.id);
+  };
+
+  // 현금 영수증 신청 시 핸드폰 번호 | 사업자 번호 update 함수
+  const handleUpdatePaymentNumber = e => {
+    console.log(e.target.value);
+    setPaymentNumber(e.target.value);
+  };
 
   /**
    * address service 추가
@@ -162,7 +204,7 @@ const Order = () => {
   // 주문자 정보 동일 여부에 따라 배송 정보 수령인/연락처 핸들링하는 함수
   useEffect(() => {
     // orderSame이 true이면 동일
-    if (orderSame) {
+    if (isOrderSame) {
       setOrderPerson(name);
       setOrderContactNumber(contactNumber);
     }
@@ -171,7 +213,7 @@ const Order = () => {
       setOrderPerson('');
       setOrderContactNumber('');
     }
-  }, [orderSame]);
+  }, [isOrderSame]);
 
   return (
     <Layout>
@@ -290,19 +332,72 @@ const Order = () => {
           {/** 주문 요약 */}
           <OrderSummary orderInfo={orderInfo} />
           {/** 결제 수단 */}
-          {/*  <div>
+          <div>
             <SubTitle>결제 수단</SubTitle>
-            <fieldset>
-              <div>
-                <label htmlFor="creditCard">신용카드</label>
-                <input type="radio" name="payment" id="creditCard" />
-              </div>
-              <div>
-                <label htmlFor="cash">무통장 입금</label>
-                <input type="radio" name="payment" id="cash" />
-              </div>
-            </fieldset>
-          </div> */}
+            <div onClick={handleUpdatePaymentType}>
+              <label htmlFor="creditCard">
+                신용카드
+                <input type="radio" name="payment" id="creditCard" defaultChecked />
+              </label>
+              <label htmlFor="cashDeposit">
+                무통장 입금
+                <input type="radio" name="payment" id="cashDeposit" />
+              </label>
+            </div>
+            {paymentType === 'cashDeposit' && (
+              <>
+                <div>
+                  <div>
+                    <span>입금 은행</span>
+                    <p>국민은행 527837-01-004676 주식회사 로컬앤라이프</p>
+                  </div>
+                  <div>
+                    <label htmlFor="depositorName">
+                      <input
+                        type="text"
+                        placeholder="입금자명 (미입력시 주문자명)"
+                        value={depositor}
+                        onChange={handleUpdateDepositor}
+                      />
+                    </label>
+                    <p>주문 후 72시간 동안 미입금시 자동 취소됩니다.</p>
+                  </div>
+                </div>
+                <div onClick={handleUpdateDeposit}>
+                  <label htmlFor="">
+                    <input type="checkbox" value={isDeposit} />
+                    현금영수증 신청
+                  </label>
+                </div>
+                {isDeposit && (
+                  <>
+                    <div onClick={handleUpdateCashReceipt}>
+                      <label htmlFor="incomeDeduction">
+                        <input type="radio" name="receipt" id="incomeDeduction" defaultChecked />
+                        소득공제용
+                      </label>
+                      <label htmlFor="proofExpenditure">
+                        <input type="radio" name="receipt" id="proofExpenditure" />
+                        지출증빙용
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        placeholder={
+                          cashReceipt === 'incomeDeduction'
+                            ? '휴대전화번호 입력'
+                            : '사업자번호 입력'
+                        }
+                        value={paymentNumber ?? ''}
+                        onChange={handleUpdatePaymentNumber}
+                      />
+                    </div>
+                  </>
+                )}
+              </>
+            )}
+          </div>
           {/** 결제 동의|결제 하기 */}
           {/* <div>
             <SubTitle>동의 및 결제</SubTitle>
