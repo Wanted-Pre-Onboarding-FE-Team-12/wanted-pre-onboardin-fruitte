@@ -17,8 +17,8 @@ const IntroduceLink = () => {
       <Title>프룻파머 인터뷰</Title>
       <LinkContainer>
         {blogLink?.map(data => (
-          <a href={data.url} target="_blank" rel="noopener noreferrer">
-            <LinkImage key={data.id} src={data.src} alt={data.name} />
+          <a key={data.id} href={data.url} target="_blank" rel="noopener noreferrer">
+            <LinkImage src={data.src} alt={data.name} />
           </a>
         ))}
       </LinkContainer>

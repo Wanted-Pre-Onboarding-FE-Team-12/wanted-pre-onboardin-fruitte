@@ -1,17 +1,31 @@
 import React from 'react';
-import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import Card from '@components/Card';
+import { getProductList } from '@api/GetproductApi';
+// import styled from 'styled-components';
 
-const CardList = () => {
-  return <CardContainer>나는 카드 리스트</CardContainer>;
+const CardList = props => {
+  const [product, setProduct] = useState([]);
+  const { currentPage } = props;
+  const productsPerPage = 10;
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProduct = product.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  useEffect(() => {
+    getProductList().then(res => {
+      setProduct(res);
+    });
+  }, [currentPage]);
+
+  return (
+    <>
+      {currentProduct.map(data => (
+        <Card key={data.id} data={data}></Card>
+      ))}
+    </>
+  );
 };
-
-const CardContainer = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  max-width: 90%;
-  min-width: 1080px;
-  text-align: center;
-  height: 100%;
-`;
 
 export default CardList;

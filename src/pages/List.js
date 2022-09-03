@@ -2,17 +2,17 @@ import Layout from '@layouts/index';
 import React from 'react';
 import IntroduceContent from '@components/introduceContent';
 import IntroduceLink from '@components/IntroduceLink';
-import CardList from '@components/CardList';
+import CardContainer from '@components/CardContainer';
 import styled from 'styled-components';
 
 const List = () => {
   return (
     <Layout>
       <ListContainer>
-        <IntroduceContent name="comment_header"></IntroduceContent>
-        <CardList></CardList>
-        <IntroduceContent name="comment_footer"></IntroduceContent>
-        <IntroduceLink></IntroduceLink>
+        <IntroduceContent name="comment_header" />
+        <CardContainer />
+        <IntroduceContent name="comment_footer" />
+        <IntroduceLink />
       </ListContainer>
     </Layout>
   );
