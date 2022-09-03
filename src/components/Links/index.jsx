@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom';
 // CSS
 import { Wrapper } from './style';
 
-const Links = () => {
+const Links = ({ styleClass, linkData }) => {
   return (
     <Wrapper>
-      <div className="nav-links">
-        <Link className="page-link" to="/">
-          Fruit Store
-        </Link>
-        <Link className="page-link" to="/admin">
-          Fruit Admin
-        </Link>
+      <div className={styleClass}>
+        {linkData.map((link, index) => (
+          <Link className="page-link" to={link.path} key={index}>
+            {link.title}
+          </Link>
+        ))}
       </div>
     </Wrapper>
   );
