@@ -34,7 +34,6 @@ const Title = styled.div`
 const LinkContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  max-width: 90%;
   min-width: 1080px;
   text-align: center;
   height: 300px;

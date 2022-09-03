@@ -30,15 +30,14 @@ const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10% 0;
-  max-width: 90%;
   min-width: 1080px;
-  text-align: center;
   height: 100%;
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
+  text-align: center;
   button {
     margin: 10px;
     width: 30px;

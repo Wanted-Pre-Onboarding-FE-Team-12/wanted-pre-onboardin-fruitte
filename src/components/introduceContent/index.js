@@ -22,7 +22,6 @@ const IntroduceContent = props => {
 
 const ContentContainer = styled.div`
   text-align: center;
-  max-width: 90%;
   min-width: 1080px;
   height: 100%;
 `;
