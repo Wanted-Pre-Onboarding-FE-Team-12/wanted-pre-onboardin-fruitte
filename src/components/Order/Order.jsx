@@ -6,50 +6,22 @@ import OrderProductInfo from '@components/Order/OrderProductInfo';
 import OrderSummary from '@components/Order/OrderSummary';
 import Layout from '@layouts/index';
 import { Container, Title, SubTitle } from './style';
-
-/**
- * useRecoilState hook을 사용하여 컴포넌트에서 atom을 읽고 쓴다.
- * (React의 useState와 비슷하지만 상태가 컴포넌트 간에 공유될 수 있다는 차이가 있음)
- *
- * 컴포넌트가 atom의 항목을 읽고/쓰기 -> useRecoilState
- * 컴포넌트가 atom의 항목을 읽기만 -> useRecoilValue
- */
-
-/**
- * 1. 결제하기 페이지에서는 주문하려는 상품의 정보를 받아온다. (o)
- * 2. 주문자 정보에서 이름, 연락처, 이메일의 정보를 입력받는다. (o)
- * 3. 배송 정보에서 배송 정보를 입력받는다. (o)
- * 4. 주문 요약에서는 1의 정보를 요약해준다. (o)
- * 5. 결제수단은 신용카드 무통장 입금을 선택할 수 있다.
- *  5-1. 무통장 입금 클릭시 입금자명 입력 받아야 한다. (미 입력시 주문자 명)
- *  5-2. 현금 영수증 신청 체크박스 클릭 시
- *   5-2-1. 소득 공제용/지출 증빙용에 따라 입력 받는 값 저장
- * 6. 결제 전체 동의 박스에서 약관 보기 클릭 시 모달로 약관 보여주기
- *
- * 결제하기 버튼을 누르면 결제 정보를 state로 저장해야 된다.
- *  상품명
- *  수량, 갯수
- *  가격
- *  배송비 정보
- *  주문자 정보
- *    이름, 연락처, 이메일?
- *  배송 정보
- *  결제 수단
- */
-
-/**
- * 주문자 정보
- * 이름, 연락처 입력시 각각 onChange event -> state 업데이트
- * 배송정보에서 주문자 정보와 동일 체크박스 클릭 시 이름, 연락처 값을 수령인 연락처에 넣어주기
- */
-
-// scriptUrl: kakao 우편번호 서비스의 스크립트 주소
 const ScriptUrl = '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
+
+const checkBoxList = [
+  {
+    id: 1,
+    title: '개인정보 수집 및 이용 동의 약관 보기',
+  },
+  {
+    id: 2,
+    title: '구매 조건 확인 및 결제 진행에 동의',
+  },
+];
 
 const Order = () => {
   // 주문 상품 정보 저장
   const [orderInfo] = useRecoilValue(order);
-
   // 주문자 이름 정보 상태값
   const [name, setName] = useState('');
   // 주문자 연락처 상태값
@@ -83,8 +55,32 @@ const Order = () => {
   // 소득 공제 | 지출 증빙 선택 시 휴대전화 번호 | 사업자 번호
   const [paymentNumber, setPaymentNumber] = useState('');
 
-  // '국민은행 527837-01-004676 주식회사 로컬앤라이프'
-  // '주문 후 72시간 동안 미입금시 자동 취소됩니다.'
+  // 체크된 결제 정보들을 담을 배열
+  const [checkItems, setCheckItems] = useState([]);
+
+  // 체크박스 단일 선택
+  const handleSingleCheck = (checked, id) => {
+    if (checked) {
+      // 단일 선택 시 체크된 아이템을 배열에 추가
+      setCheckItems(prev => [...prev, id]);
+    } else {
+      // 단일 선택 해제 시 체크된 아이템을 제외한 배열 (필터)
+      setCheckItems(checkItems.filter(el => el !== id));
+    }
+  };
+
+  // 체크박스 전체 선택
+  const handleAllCheck = checked => {
+    if (checked) {
+      // 전체 선택 클릭 시 데이터의 모든 아이템(id)를 담은 배열로 checkItems 상태 업데이트
+      const idArray = [];
+      checkBoxList.forEach(el => idArray.push(el.id));
+      setCheckItems(idArray);
+    } else {
+      // 전체 선택 해제 시 checkItems 를 빈 배열로 상태 업데이트
+      setCheckItems([]);
+    }
+  };
 
   // 주문자 이름 update 함수
   const handleUpdateName = useCallback(e => setName(e.target.value), []);
@@ -146,41 +142,18 @@ const Order = () => {
   const handleUpdateDepositor = useCallback(e => setDepositor(e.target.value), []);
 
   // 현금 영수증 신청 체크 update 함수
-  const handleUpdateDeposit = () => {
-    setIsDeposit(!isDeposit);
-  };
+  const handleUpdateDeposit = useCallback(() => setIsDeposit(!isDeposit), [isDeposit]);
 
   // 현금 영수증 신청 시 소득 공제용 | 지출 증빙용 선택 update 함수
-  const handleUpdateCashReceipt = e => {
-    setCashReceipt(e.target.id);
-  };
+  const handleUpdateCashReceipt = useCallback(e => setCashReceipt(e.target.id), []);
 
   // 현금 영수증 신청 시 핸드폰 번호 | 사업자 번호 update 함수
-  const handleUpdatePaymentNumber = e => {
-    console.log(e.target.value);
-    setPaymentNumber(e.target.value);
-  };
+  const handleUpdatePaymentNumber = useCallback(e => setPaymentNumber(e.target.value), []);
 
-  /**
-   * address service 추가
-   * 필요한 값: 우편번호, 주소, 상세 주소
-   *
-   * zonecode: 우편번호
-   * address: 기본 주소(검색 결과의 첫 줄에 나오는 주소, 지번 입력-> 첫 줄, 도로명 입력 -> 첫 줄) / 내가 검색한 주소 그대로
-   * addressType: 검색한 주소 스타일, R(도로명), J(지번)
-   * userSelectedType: R/J 검색 결과에서 사용자가 선택한 주소의 타입(결과 중 선택한 주소 스타일)
-   * roadAddress: 도로명 주소
-   * jibunAddress: 지번 주소
-   *
-   * bname: 법정동/법정리 이름
-   * buildingName: 건물명
-   */
-
-  // api script 주소 넣어서 함수 가져오기
   const handleFindZipCode = usePostCode(ScriptUrl);
 
   const handleComplete = useCallback(data => {
-    // data가 있다면?
+    // data가 있다면
     if (data) {
       // data에서 필요한 값들 가져오기
       let { zonecode, address, userSelectedType, roadAddress, jibunAddress } = data;
@@ -399,23 +372,40 @@ const Order = () => {
             )}
           </div>
           {/** 결제 동의|결제 하기 */}
-          {/* <div>
+          <div>
             <SubTitle>동의 및 결제</SubTitle>
-            <div>
-              <input type="checkbox" />
-              <span>전체 동의</span>
-            </div>
-            <div>
-              <input type="checkbox" />
-              <span>
-                개인정보 수집 및 이용 동의 <span style={{ color: 'green' }}>약관 보기</span>
-              </span>
-            </div>
-            <div>
-              <input type="checkbox" />
-              <span>구매 조건 확인 및 결제 진행에 동의</span>
-            </div>
-          </div> */}
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <input
+                    type="checkbox"
+                    name="select-all"
+                    onChange={e => handleAllCheck(e.target.checked)}
+                    checked={checkItems.length === checkBoxList.length ? true : false}
+                  />
+                </th>
+                <th className="second-row">전체 동의</th>
+              </tr>
+            </thead>
+            <tbody>
+              {checkBoxList?.map((data, key) => (
+                <tr key={key}>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name={`select-${data.id}`}
+                      onChange={e => handleSingleCheck(e.target.checked, data.id)}
+                      checked={checkItems.includes(data.id) ? true : false}
+                    />
+                  </td>
+                  <td className="second-row">{data.title}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <button>결제하기</button>
         </div>
       </Container>
     </Layout>
