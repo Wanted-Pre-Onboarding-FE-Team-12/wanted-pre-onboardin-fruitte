@@ -2,12 +2,20 @@ import styled from 'styled-components';
 import variables from '@styles/theme';
 
 /**
+ * 공통 스타일
+ */
+export const SubTitle = styled.h1`
+  font-size: ${variables.sideSpace.contentSmall};
+`;
+
+/**
  * 결제하기 페이지
  * */
 export const Container = styled.div`
   background-color: pink;
   width: 90%;
-  // display: flex;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const Title = styled.h1`
