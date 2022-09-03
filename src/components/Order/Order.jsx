@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
-// import { useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { useDaumPostcodePopup as usePostCode } from 'react-daum-postcode';
-// import { order } from '@state/state';
-// import OrderProductInfo from '@components/Order/OrderProductInfo';
+import { order } from '@state/state';
+import OrderProductInfo from '@components/Order/OrderProductInfo';
+import OrderSummary from '@components/Order/OrderSummary';
 import Layout from '@layouts/index';
 import { Container, Title, SubTitle } from './style';
 
@@ -43,8 +44,7 @@ const ScriptUrl = '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js
 
 const Order = () => {
   // 주문 상품 정보 저장
-  // const [orderInfo] = useRecoilValue(order); // setState 함수 우선 필요가 없어서 지움
-  // console.log(orderInfo);
+  const [orderInfo] = useRecoilValue(order);
 
   // 주문자 이름 정보 상태값
   const [name, setName] = useState('');
@@ -101,7 +101,7 @@ const Order = () => {
   const handleUpdateExtraAddress = useCallback(e => setExtraAddress(e.target.value), []);
 
   // 배송 메모 update 함수
-  const handleUpdateOrderMessage = e => {
+  const handleUpdateOrderMessage = useCallback(e => {
     const orderMessageType = e.target.value;
 
     // 선택한 option 값 orderType에 업데이트
@@ -111,14 +111,13 @@ const Order = () => {
     } else {
       setOrderMessage(orderMessageType);
     }
-  };
+  }, []);
 
   // 배송 메모 사용자 추가 update 함수
-  const handleUpdateOrderUserMessage = e => {
-    console.log(e.target.value);
+  const handleUpdateOrderUserMessage = useCallback(e => {
     const customMessage = e.target.value;
     setUserOrderMessage(customMessage);
-  };
+  }, []);
 
   /**
    * address service 추가
@@ -179,7 +178,7 @@ const Order = () => {
       <Container>
         <div>
           <Title>결제 페이지</Title>
-          {/* <OrderProductInfo orderInfo={orderInfo} /> */}
+          <OrderProductInfo orderInfo={orderInfo} />
           {/** 주문자 정보 */}
           <div>
             <SubTitle>주문자 정보</SubTitle>
@@ -289,22 +288,7 @@ const Order = () => {
         </div>
         <div>
           {/** 주문 요약 */}
-          {/*  <div>
-            <SubTitle>주문 요약</SubTitle>
-            <p>
-              <span>상품 가격</span>
-              <span>{orderInfo.price}원</span>
-            </p>
-            <p>
-              <span>배송비</span>
-              <span>{orderInfo.deliveryCharge === 0 ? '무료' : orderInfo.deliveryCharge}원</span>
-            </p>
-            <hr />
-            <p>
-              <span>총 주문 금액</span>
-              <span>{orderInfo.price}원</span>
-            </p>
-          </div> */}
+          <OrderSummary orderInfo={orderInfo} />
           {/** 결제 수단 */}
           {/*  <div>
             <SubTitle>결제 수단</SubTitle>
