@@ -5,7 +5,7 @@ import {
 } from './style';
 import { ProductOrder } from '@components/ProductOrder/index.jsx';
 
-export const ProductOverview = ({ data }) => {
+export const ProductOverview = ({ data, optionSelectState }) => {
 
     let {imgUrl, name, message, deliveryInfo, option} = data;
     
@@ -36,7 +36,7 @@ export const ProductOverview = ({ data }) => {
                         })}
                     </DeliveryInfo>
                 </Description>
-                <ProductOrder option={option}/>
+                <ProductOrder option={option} optionSelectState={optionSelectState} />
             </Selling>
         </Overview>
     );

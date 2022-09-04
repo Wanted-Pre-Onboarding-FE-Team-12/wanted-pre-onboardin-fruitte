@@ -35,8 +35,6 @@ export const ProductActs = styled.div`
 
 export const Act = styled.button`
     border: none;
-    background-color: green;
-    color: ${variables.colors.white};
     border-radius: 30px;
     font-size: 0.5rem;
     padding: 0.5rem;

@@ -2,11 +2,17 @@ import React from 'react';
 import { Wrapper, Navigation, NavButton} from './style';
 import { ProductOverview } from '@components/ProductOverview/index.jsx';
 import { ProductFeature } from '@components/ProductFeature/index.jsx';
+import { atom } from 'recoil';
 
 export const ProductDetail = () => {
 
-    const onLinkClick = (name) => {
-        alert(name)
+    const optionSelectState = atom({
+        key:'optionSelectState',
+        default:[]
+    })
+
+    const onLinkClick = (event) => {
+        //스크롤이벤트
         //let getMeTo = document.getElementById(name);
         //getMeTo.scrollIntoView({behavior: 'smooth'}, true);
     };
@@ -44,7 +50,7 @@ export const ProductDetail = () => {
     
     return (
         <Wrapper>
-            <ProductOverview data={data}/>
+            <ProductOverview data={data} optionSelectState={optionSelectState}/>
             <Navigation>
                 <NavButton onClick={onLinkClick}>상품정보</NavButton>
                 <NavButton onClick={onLinkClick}>리뷰</NavButton>
