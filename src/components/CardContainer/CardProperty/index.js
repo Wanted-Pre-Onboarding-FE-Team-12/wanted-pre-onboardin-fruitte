@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import variables from '@styles/theme';
 
 const CardProperty = props => {
   const { isBest, isSoldOut, isSale } = props;
@@ -24,13 +23,13 @@ const ProductProperty = styled.div`
     font-weight: 900;
   }
   .best {
-    background-color: ${variables.colors.darkRed};
+    background-color: ${props => props.theme.colors.darkRed};
   }
   .soldOut {
-    background-color: ${variables.colors.darkGreen};
+    background-color: ${props => props.theme.colors.darkGreen};
   }
   .sale {
-    background-color: ${variables.colors.lightOrange};
+    background-color: ${props => props.theme.colors.lightRed};
   }
 `;
 

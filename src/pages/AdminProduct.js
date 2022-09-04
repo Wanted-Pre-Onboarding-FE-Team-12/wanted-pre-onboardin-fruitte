@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import TableBody from '@components/TableBody';
-import TableHeader from '@components/TableHeader';
-
 import { getProductList } from '@api/adminApi';
 
 import styled from 'styled-components';
+import Table from '@components/Table';
+import Pagination from '@components/Pagination';
 
 const TITLES = [
   { name: '상품번호', width: '50px' },
@@ -15,13 +14,19 @@ const TITLES = [
 
 const AdminProduct = () => {
   const [product, setProduct] = useState([]);
-
+  const [page, setPage] = useState(1);
+  const [limit] = useState(10);
+  // const offset = useMemo(() => (page - 1) * limit, [page, limit]);
+  const [total, setTotal] = useState(0);
   useEffect(() => {
     (async () => {
-      const productData = await getProductList();
-      setProduct(productData);
+      const [productData, totalSize] = await getProductList(page, limit);
+      setTotal(totalSize);
+      if (productData.length > 0) {
+        setProduct(productData);
+      }
     })();
-  }, []);
+  }, [page]);
 
   const deleteProduct = id => {
     const newProducts = [...product];
@@ -45,14 +50,13 @@ const AdminProduct = () => {
 
   return (
     <Wrapper>
-      <Table>
-        <TableHeader titleArr={TITLES} />
-        <TableBody
-          product={product}
-          deleteProduct={deleteProduct}
-          setVisibleProduct={setVisibleProduct}
-        />
-      </Table>
+      <Table
+        titleArr={TITLES}
+        product={product}
+        deleteProduct={deleteProduct}
+        setVisibleProduct={setVisibleProduct}
+      />
+      <Pagination total={total} limit={limit} page={page} setPage={setPage} />
     </Wrapper>
   );
 };
@@ -60,8 +64,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
-
-const Table = styled.table``;
 
 export default AdminProduct;
