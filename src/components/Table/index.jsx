@@ -28,6 +28,16 @@ const Table = props => {
   );
 };
 
-const StyledTable = styled.table``;
+const StyledTable = styled.table`
+  width: 100%;
+  height: 60vh;
+  tbody tr:nth-child(2n + 1) {
+    border-bottom: 0.2px solid;
+  }
+  tbody tr:nth-child(2n) {
+    border-bottom: 0.2px solid;
+    border-top: 0.2px solid;
+  }
+`;
 
 export default Table;
