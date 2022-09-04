@@ -14,6 +14,10 @@ const OrderConfirm = () => {
     navigate(-1);
   };
 
+  const goToHome = () => {
+    navigate('/home');
+  };
+
   return (
     <Layout>
       <OrderedWrap>
@@ -29,7 +33,7 @@ const OrderConfirm = () => {
         <UserData />
         <FooterWrap>
           <HomeIcon fontSize="large" style={{ marginTop: '2px', cursor: 'pointer' }} />
-          <HomeButton>홈으로</HomeButton>
+          <HomeButton onClick={goToHome}>홈으로</HomeButton>
         </FooterWrap>
       </OrderedWrap>
     </Layout>
