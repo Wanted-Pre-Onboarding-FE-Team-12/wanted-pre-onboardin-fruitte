@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import CardPrice from '@components/CardPrice';
-import CardProperty from '@components/CardProperty';
+import CardPrice from '@components/CardContainer/CardPrice';
+import CardProperty from '@components/CardContainer/CardProperty';
 import styled from 'styled-components';
 
 const Card = props => {

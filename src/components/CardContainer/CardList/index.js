@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Card from '@components/Card';
+import Card from '@components/CardContainer/Card';
 import { getProductList } from '@api/GetproductApi';
 import styled from 'styled-components';
 

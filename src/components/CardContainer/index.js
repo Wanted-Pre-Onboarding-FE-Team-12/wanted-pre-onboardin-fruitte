@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import CardList from '@components/CardList';
-import CardListButtons from '@components/CardListButtons';
+import CardList from '@components/CardContainer/CardList';
+import CardListButtons from '@components/CardContainer/CardListButtons';
 import styled from 'styled-components';
 
 const CardContainer = () => {
