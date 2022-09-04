@@ -1,11 +1,14 @@
 import Layout from '@layouts/index';
 import React from 'react';
+// import { useRecoilState } from 'recoil';
+// import { productState } from 'src/store/store';
 import IntroduceContent from '@components/introduceContent';
 import IntroduceLink from '@components/IntroduceLink';
 import CardContainer from '@components/CardContainer';
 import styled from 'styled-components';
 
 const List = () => {
+  // const [product] = useRecoilState(productState);
   return (
     <Layout>
       <ListContainer>
