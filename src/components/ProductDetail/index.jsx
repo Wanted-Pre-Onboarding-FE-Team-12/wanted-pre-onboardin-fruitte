@@ -1,7 +1,7 @@
 import React from 'react';
-import { Wrapper, Navigation, ProductFeature} from './style';
-import { NavButton, Content, Review, Question } from './style';
+import { Wrapper, Navigation, NavButton} from './style';
 import { ProductOverview } from '@components/ProductOverview/index.jsx';
+import { ProductFeature } from '@components/ProductFeature/index.jsx';
 
 export const ProductDetail = () => {
 
@@ -50,13 +50,7 @@ export const ProductDetail = () => {
                 <NavButton onClick={onLinkClick}>리뷰</NavButton>
                 <NavButton onClick={onLinkClick}>문의</NavButton>
             </Navigation>
-            <ProductFeature>
-                <Content id='content'>
-                    <img width="100%" display="block" src={data.productInfoImgUrl}></img>
-                </Content>
-                <Review id='review'> 리뷰 섹션</Review>
-                <Question id='question'> 문의 섹션</Question>
-            </ProductFeature>
+            <ProductFeature productInfoImgUrl={data.productInfoImgUrl}/>
         </Wrapper>
     );
 };
