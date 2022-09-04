@@ -71,12 +71,12 @@ const OrderList = ({ goods }) => {
 
         <TableBody>
           {goods?.map(
-            ({ id, name, price, origin, sale_price, imgUrl, option, is_best, is_sale }) => (
+            ({ id, name, price, delivery_info, sale_price, imgUrl, option, is_best, is_sale }) => (
               <StyledTableRow key={id}>
                 <StyledTableCell component="th" scope="row" style={{ display: 'flex' }}>
                   <OrderedGoodsImg src={imgUrl} alt="goods" />
                   <OrderedInfo>
-                    <span>{origin}</span>
+                    <span>{delivery_info[0].origin}</span>
                     <span>{name}</span>
                     <span>옵션 : {option[0].name}</span>
                   </OrderedInfo>
