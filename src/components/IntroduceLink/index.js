@@ -28,7 +28,7 @@ const IntroduceLink = () => {
 
 const Title = styled.div`
   margin: 25px;
-  font-size: 22px;
+  font-size: x-large;
 `;
 
 const LinkContainer = styled.div`

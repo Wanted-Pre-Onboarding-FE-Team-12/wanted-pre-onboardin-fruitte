@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import variables from '@styles/theme';
 
 // sale_price, origin
 const Card = props => {
@@ -14,9 +15,9 @@ const Card = props => {
   };
 
   return (
-    <Container onClick={() => goToDetailHandle()}>
-      <CardImage alt={name} src={imgUrl} />
-      <CardTitle>{name}</CardTitle>
+    <Container>
+      <CardImage alt={name} src={imgUrl} onClick={() => goToDetailHandle()} />
+      <CardTitle onClick={() => goToDetailHandle()}>{name}</CardTitle>
       <CardPrice>{is_sale ? price * is_sale : price}</CardPrice>
       <CardProperty>
         {is_best && <div className="best">best</div>}
@@ -38,14 +39,25 @@ const Container = styled.div`
 const CardImage = styled.img`
   width: 100%;
   height: 200px;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.5s;
+  }
 `;
 
 const CardTitle = styled.div`
-  font-size: 18px;
+  text-align: center;
+  margin: 5px;
+  font-size: large;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-const CardPrice = styled.div`
-  font-size: 18px;
+const CardPrice = styled(CardTitle)`
+  text-align: start;
+  font-weight: 300;
 `;
 
 const CardProperty = styled.div`
@@ -53,16 +65,17 @@ const CardProperty = styled.div`
   flex-direction: row;
   div {
     margin-right: 10px;
-    font-size: 15px;
+    font-size: small;
+    font-weight: 900;
   }
   .best {
-    background-color: red;
+    background-color: ${variables.colors.darkRed};
   }
   .soldOut {
-    background-color: green;
+    background-color: ${variables.colors.darkGreen};
   }
   .sale {
-    background-color: purple;
+    background-color: ${variables.colors.lightOrange};
   }
 `;
 

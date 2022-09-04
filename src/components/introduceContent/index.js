@@ -4,6 +4,8 @@ import COMMENT_LIST from './CommentData';
 
 const IntroduceContent = props => {
   const { name } = props;
+  const { comment, title } = COMMENT_LIST[name];
+
   return (
     <ContentContainer>
       <Title>
@@ -11,9 +13,9 @@ const IntroduceContent = props => {
           src="https://cdn.imweb.me/upload/S201907022014f7de8adf6/075897ae563f4.png"
           alt="TitleImg"
         />
-        <div>{COMMENT_LIST[name].title}</div>
+        <div>{title}</div>
       </Title>
-      {COMMENT_LIST[name].comment.map(data => (
+      {comment.map(data => (
         <Comment key={data.id}>{data.comment}</Comment>
       ))}
     </ContentContainer>
@@ -31,7 +33,7 @@ const Title = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 70px;
-  font-size: 30px;
+  font-size: xx-large;
   img {
     width: 50px;
     height: 50px;
@@ -40,7 +42,7 @@ const Title = styled.div`
 `;
 
 const Comment = styled.div`
-  font-size: 15px;
+  font-size: medium;
   font-weight: 100;
   margin: 10px 0;
 `;

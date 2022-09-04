@@ -23,6 +23,7 @@ const ListContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 5%;
 `;
 
 export default List;

@@ -7,10 +7,10 @@ import styled from 'styled-components';
 const CardList = props => {
   const [product, setProduct] = useState([]);
   const { currentPage } = props;
-  const productsPerPage = 10;
+  const PRODUCTS_PER_PAGE = 10;
 
-  const indexOfLastProduct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const indexOfLastProduct = currentPage * PRODUCTS_PER_PAGE;
+  const indexOfFirstProduct = indexOfLastProduct - PRODUCTS_PER_PAGE;
   const currentProduct = product.slice(indexOfFirstProduct, indexOfLastProduct);
 
   useEffect(() => {
@@ -29,10 +29,11 @@ const CardList = props => {
 };
 
 const CardContent = styled.div`
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  width: 100%;
+  min-height: 700px;
 `;
 
 export default CardList;
