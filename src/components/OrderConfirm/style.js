@@ -7,9 +7,16 @@ export const OrderedWrap = styled.div`
 
 export const ConfirmHeader = styled.div`
   display: flex;
+  margin-bottom: 20px;
 `;
 
 export const PageName = styled.h2`
+  margin-top: 2px;
+  padding-left: 15px;
+  font-size: 20px;
+`;
+
+export const HomeButton = styled.div`
   margin-top: 2px;
   padding-left: 15px;
   font-size: 20px;
@@ -82,4 +89,29 @@ export const PrevPrice = styled.span`
 
 export const CurrPrice = styled.span`
   font-weight: 600;
+`;
+
+export const FooterWrap = styled.footer`
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  justify-content: center;
+`;
+
+export const OrderInfoWrapper = styled.div`
+  margin-top: 20px;
+`;
+
+export const TableName = styled.div`
+  font-size: 20px;
+  font-weight: 600;
+  color: #212121;
+`;
+export const Delivery = styled.div`
+  font-weight: 600;
+  font-size: 18px;
+`;
+export const DeleiverStatus = styled.div`
+  font-weight: 600;
+  font-size: 18px;
 `;
