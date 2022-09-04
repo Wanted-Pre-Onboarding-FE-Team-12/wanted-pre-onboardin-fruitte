@@ -56,23 +56,3 @@ export const SpanStrong = styled.span`
     margin-right: 1rem;
 `;
 
-export const Form = styled.form`
-    display:flex;
-    flex-direction:column;
-    margin-bottom: 1rem;
-`;
-
-export const DropDown = styled.select`
-    font-size: 1.3rem;
-`;
-
-export const Button = styled.button`
-    background-color: ${props => props.cart ? `${variables.colors.darkGreen};` : `${variables.colors.white}`};
-    border:none;
-    color: ${props => props.cart ? `${variables.colors.white}` : `${variables.colors.darkGreen};`};
-    padding: 2rem;
-    font-size: 2rem;
-    font-weight: 600;
-    border-radius: 5px;
-    border: 1px solid ${variables.colors.darkGreen};
-`;

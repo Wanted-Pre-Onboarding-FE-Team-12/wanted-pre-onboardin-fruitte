@@ -1,8 +1,9 @@
 import React from 'react';
 import { 
-    Overview, Thumbnail, ThumbnailImage, Selling, SellingHeader, ProductActs,
-    Act, Description, DeliveryInfo,SpanStrong, Form, DropDown, Button 
+    Overview, Thumbnail, ThumbnailImage, Selling, SellingHeader, 
+    ProductActs, Act, Description, DeliveryInfo, SpanStrong 
 } from './style';
+import { ProductOrder } from '@components/ProductOrder/index.jsx';
 
 export const ProductOverview = ({ data }) => {
     let {imgUrl, name, message, deliveryInfo, option} = data;
@@ -33,23 +34,7 @@ export const ProductOverview = ({ data }) => {
                         })}
                     </DeliveryInfo>
                 </Description>
-                <section className="order">
-                    <Form>
-                        <label>*필수선택</label>
-                        <DropDown>
-                            <option value="default">필수선택입니다.</option>
-                            {Object.keys(option).map((key) => {
-                                let { id, name, price } = option[key];
-                                return <option key={id} value={name}>{name} {price}</option>;
-                            })}
-                        </DropDown>
-
-                    </Form>
-                    <div className="orderButtons">
-                        <Button>구매하기</Button>
-                        <Button cart>장바구니</Button>
-                    </div>
-                </section>
+                <ProductOrder option={option}/>
             </Selling>
         </Overview>
     );
