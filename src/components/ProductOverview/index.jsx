@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
-    Overview, Thumbnail, ThumbnailImage, Selling, SellingHeader, ProductActs, SaveProduct,
-    ShareProduct, Description, DeliveryInfo,SpanStrong, Form, DropDown, Button 
+    Overview, Thumbnail, ThumbnailImage, Selling, SellingHeader, ProductActs,
+    Act, Description, DeliveryInfo,SpanStrong, Form, DropDown, Button 
 } from './style';
 
 export const ProductOverview = ({ data }) => {
@@ -14,8 +14,8 @@ export const ProductOverview = ({ data }) => {
                 <SellingHeader>
                     <h1> {data.name} </h1>
                     <ProductActs>
-                        <SaveProduct>저장</SaveProduct>
-                        <ShareProduct>공유</ShareProduct>
+                        <Act>저장</Act>
+                        <Act>공유</Act>
                     </ProductActs>
                 </SellingHeader>
                 <Description>

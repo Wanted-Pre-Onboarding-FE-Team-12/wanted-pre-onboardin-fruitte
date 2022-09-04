@@ -24,7 +24,7 @@ export const Selling = styled.div`
 `;
 
 export const SellingHeader = styled.section`
-    display:flex;
+    display: flex;
     align-items:center;
 `;
 
@@ -33,16 +33,13 @@ export const ProductActs = styled.div`
     align-items: center;
 `;
 
-export const SaveProduct = styled.button`
+export const Act = styled.button`
     border: none;
     background-color: green;
     color: ${variables.colors.white};
     border-radius: 30px;
     font-size: 0.5rem;
     padding: 0.5rem;
-`;
-
-export const ShareProduct = styled(SaveProduct)`
 `;
 
 export const Description = styled.section`

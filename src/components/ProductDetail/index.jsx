@@ -1,7 +1,7 @@
 import React from 'react';
 import { Wrapper, Navigation, ProductFeature} from './style';
 import { NavButton, Content, Review, Question } from './style';
-import { ProductOverview } from '@components/ProductOverview/index.js';
+import { ProductOverview } from '@components/ProductOverview/index.jsx';
 
 export const ProductDetail = () => {
 
