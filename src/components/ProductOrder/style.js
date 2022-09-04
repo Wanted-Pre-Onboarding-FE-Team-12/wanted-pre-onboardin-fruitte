@@ -11,6 +11,12 @@ export const DropDown = styled.select`
     font-size: 1.3rem;
 `;
 
+export const TotalPrice = styled.div`
+    display:flex;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+`;
+
 export const Button = styled.button`
     background-color: ${props => props.cart ? `${variables.colors.darkGreen};` : `${variables.colors.white}`};
     border:none;

@@ -5,9 +5,9 @@ import {
 } from './style';
 import { ProductOrder } from '@components/ProductOrder/index.jsx';
 
-export const ProductOverview = ({ data, optionSelectState }) => {
-
-    let {imgUrl, name, message, deliveryInfo, option} = data;
+export const ProductOverview = ({ data }) => {
+    let {imgUrl, name, message, delivery_info, option} = data;
+    const delivery = { 'origin': '원산지', 'is_delivery': '배송방법', 'price': '배송비'}
     
     return (
         <Overview>
@@ -28,15 +28,15 @@ export const ProductOverview = ({ data, optionSelectState }) => {
                         {message}
                     </p>
                     <DeliveryInfo>
-                        {Object.keys(deliveryInfo).map(key => {
+                        {Object.keys(delivery_info[0]).map(key => {
                             return <div key={key}>
-                                <SpanStrong>{key}</SpanStrong>
-                                <span>{deliveryInfo[key]}</span>
+                                <SpanStrong>{delivery[key]}</SpanStrong>
+                                <span>{delivery_info[0][key]}</span>
                             </div>;
                         })}
                     </DeliveryInfo>
                 </Description>
-                <ProductOrder option={option} optionSelectState={optionSelectState} />
+                <ProductOrder option={option} />
             </Selling>
         </Overview>
     );

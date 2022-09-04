@@ -11,7 +11,7 @@ const Card = props => {
   const navigate = useNavigate();
 
   const goToDetailHandle = () => {
-    navigate(`/detail/${id}`);
+    navigate(`/detail/${id}`, { state: data });
   };
 
   return (

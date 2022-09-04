@@ -1,14 +1,15 @@
-import React from 'react';
-import { Form, DropDown, Button } from './style';
-import { useRecoilValue, useRecoilState } from 'recoil';
+import React, { useEffect, useState } from 'react';
+import { Form, DropDown, Button, TotalPrice } from './style';
 import ProductSelectList from '@components/ProductSelectList';
 
-export const ProductOrder = ({ option, optionSelectState }) => {
+export const ProductOrder = ({ option, goToOrderHandle }) => {
     
-    const [optionSelect, setOptionSelect] = useRecoilState(optionSelectState);
-    const optionSelectList = useRecoilValue(optionSelectState); // id : price, count
+    const [optionSelect, setOptionSelect] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
-    
+    useEffect(()=>{
+        console.log(totalPrice)
+    },[totalPrice])
     const handleChange = (event) => {
         const targetKey = event.target.value;
         if (targetKey === 'default'){
@@ -20,8 +21,11 @@ export const ProductOrder = ({ option, optionSelectState }) => {
                 ...oldSelectList,
                 currentSelected
             ])
+            console.log(currentSelected)
+            setTotalPrice(old=>old+currentSelected.price)
         }
     }
+
     return (
         <section className="order">
             <Form>
@@ -35,13 +39,20 @@ export const ProductOrder = ({ option, optionSelectState }) => {
                 </DropDown>
             </Form>
             {optionSelect.length !== 0 && 
-                <ProductSelectList 
-                    optionSelectList={optionSelectList}
+                <ProductSelectList
+                    optionSelect={optionSelect}
                     setOptionSelect={setOptionSelect}
+                    setTotalPrice={setTotalPrice}
+                    totalPrice={totalPrice}
                 />
             }
+            <TotalPrice>
+                <span>total: </span>
+                <span>{totalPrice}</span>
+                <span>원</span>
+            </TotalPrice>
             <div className="orderButtons">
-                <Button>구매하기</Button>
+                <Button onClick={goToOrderHandle}>구매하기</Button>
                 <Button cart>장바구니</Button>
             </div>
         </section>
