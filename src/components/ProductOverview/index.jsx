@@ -5,14 +5,15 @@ import {
 } from './style';
 
 export const ProductOverview = ({ data }) => {
+    let {imgUrl, name, message, deliveryInfo, option} = data;
     return (
         <Overview>
             <Thumbnail>
-                <ThumbnailImage src={data.imgUrl}></ThumbnailImage>
+                <ThumbnailImage src={imgUrl}></ThumbnailImage>
             </Thumbnail>
             <Selling>
                 <SellingHeader>
-                    <h1> {data.name} </h1>
+                    <h1> {name} </h1>
                     <ProductActs>
                         <Act>저장</Act>
                         <Act>공유</Act>
@@ -21,13 +22,13 @@ export const ProductOverview = ({ data }) => {
                 <Description>
                     <h2 className='price'></h2>
                     <p className='message'>
-                        {data.message}
+                        {message}
                     </p>
                     <DeliveryInfo>
-                        {Object.keys(data.deliveryInfo).map(key => {
+                        {Object.keys(deliveryInfo).map(key => {
                             return <div key={key}>
                                 <SpanStrong>{key}</SpanStrong>
-                                <span>{data.deliveryInfo[key]}</span>
+                                <span>{deliveryInfo[key]}</span>
                             </div>;
                         })}
                     </DeliveryInfo>
@@ -37,8 +38,8 @@ export const ProductOverview = ({ data }) => {
                         <label>*필수선택</label>
                         <DropDown>
                             <option value="default">필수선택입니다.</option>
-                            {Object.keys(data.option).map((key) => {
-                                let { id, name, price } = data.option[key];
+                            {Object.keys(option).map((key) => {
+                                let { id, name, price } = option[key];
                                 return <option key={id} value={name}>{name} {price}</option>;
                             })}
                         </DropDown>
