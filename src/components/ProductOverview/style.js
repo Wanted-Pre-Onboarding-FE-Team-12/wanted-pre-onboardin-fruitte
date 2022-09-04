@@ -28,9 +28,6 @@ export const SellingHeader = styled.section`
     align-items:center;
 `;
 
-export const Title = styled.h1`
-`;
-
 export const ProductActs = styled.div`
     display: flex;
     align-items: center;
@@ -53,12 +50,6 @@ export const Description = styled.section`
     margin: ${variables.sideSpace.contentSmall} 0;
 `;
 
-export const Price = styled.h2`
-`;
-
-export const Message = styled.p`
-`;
-
 export const DeliveryInfo = styled.div`
     margin: ${variables.sideSpace.contentSmall} 0;
 `;
@@ -68,25 +59,14 @@ export const SpanStrong = styled.span`
     margin-right: 1rem;
 `;
 
-export const Span = styled.span`
-`;
-export const Order = styled.section`
-`;
-
 export const Form = styled.form`
     display:flex;
     flex-direction:column;
     margin-bottom: 1rem;
 `;
 
-export const Label = styled.label`
-`;
-
 export const DropDown = styled.select`
     font-size: 1.3rem;
-`;
-
-export const OrderButtons = styled.div`
 `;
 
 export const Button = styled.button`
