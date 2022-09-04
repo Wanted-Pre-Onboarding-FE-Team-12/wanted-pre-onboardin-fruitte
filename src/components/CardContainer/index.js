@@ -10,7 +10,7 @@ const CardContainer = () => {
   return (
     <ProductContainer>
       <CardList currentPage={currentPage}></CardList>
-      <CardListButtons setCurrentPage={setCurrentPage} />
+      <CardListButtons currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </ProductContainer>
   );
 };
@@ -19,7 +19,7 @@ const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 10% 0;
+  margin: 5% 0;
   min-width: 1080px;
   height: 100%;
 `;

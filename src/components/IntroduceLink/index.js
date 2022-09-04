@@ -19,6 +19,7 @@ const IntroduceLink = () => {
         {blogLink?.map(data => (
           <a key={data.id} href={data.url} target="_blank" rel="noopener noreferrer">
             <LinkImage src={data.src} alt={data.name} />
+            <div>{data.title}</div>
           </a>
         ))}
       </LinkContainer>
@@ -37,6 +38,11 @@ const LinkContainer = styled.div`
   min-width: 1080px;
   text-align: center;
   height: 300px;
+  div {
+    margin-top: 20px;
+    font-size: small;
+    font-weight: 700;
+  }
 `;
 
 const LinkImage = styled.img`

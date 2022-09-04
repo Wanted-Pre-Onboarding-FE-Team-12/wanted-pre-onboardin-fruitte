@@ -1,39 +1,36 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import CardPrice from '@components/CardPrice';
+import CardProperty from '@components/CardProperty';
 import styled from 'styled-components';
-import variables from '@styles/theme';
 
-// sale_price, origin
 const Card = props => {
   const { data } = props;
-  const { id, imgUrl, name, price, is_best, is_sold_out, is_sale } = data;
+  const { id, imgUrl, name, price, is_best, is_sold_out, is_sale, sale_price } = data;
 
   const navigate = useNavigate();
 
   const goToDetailHandle = () => {
-    navigate(`/page/${id}`);
+    navigate(`/detail/${id}`);
   };
 
   return (
     <Container>
       <CardImage alt={name} src={imgUrl} onClick={() => goToDetailHandle()} />
       <CardTitle onClick={() => goToDetailHandle()}>{name}</CardTitle>
-      <CardPrice>{is_sale ? price * is_sale : price}</CardPrice>
-      <CardProperty>
-        {is_best && <div className="best">best</div>}
-        {is_sold_out && <div className="soldOut">sold out</div>}
-        {is_sale && <div className="sale">sale</div>}
-      </CardProperty>
+      <CardPrice price={price} isSale={is_sale} salePrice={sale_price} />
+      <CardProperty isBest={is_best} isSoldOut={is_sold_out} isSale={is_sale} />
     </Container>
   );
 };
 
 const Container = styled.div`
+  position: relative;
   width: 18%;
   min-width: 250px;
   max-width: 350px;
-  display: flex;
-  flex-direction: column;
+  height: 300px;
+  margin: 10px;
 `;
 
 const CardImage = styled.img`
@@ -52,30 +49,6 @@ const CardTitle = styled.div`
   font-size: large;
   &:hover {
     cursor: pointer;
-  }
-`;
-
-const CardPrice = styled(CardTitle)`
-  text-align: start;
-  font-weight: 300;
-`;
-
-const CardProperty = styled.div`
-  display: flex;
-  flex-direction: row;
-  div {
-    margin-right: 10px;
-    font-size: small;
-    font-weight: 900;
-  }
-  .best {
-    background-color: ${variables.colors.darkRed};
-  }
-  .soldOut {
-    background-color: ${variables.colors.darkGreen};
-  }
-  .sale {
-    background-color: ${variables.colors.lightOrange};
   }
 `;
 

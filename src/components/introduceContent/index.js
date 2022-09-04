@@ -32,7 +32,7 @@ const Title = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 70px;
+  margin: 5%;
   font-size: xx-large;
   img {
     width: 50px;
