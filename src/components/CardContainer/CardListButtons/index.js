@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import variables from '@styles/theme';
 
 const CardListButtons = props => {
   const { setCurrentPage, currentPage } = props;
@@ -47,11 +46,11 @@ const ButtonContainer = styled.div`
 
     &:hover {
       transition: all ease 1s 0s;
-      background-color: ${variables.colors.lightGreen};
+      background-color: ${props => props.theme.colors.lightGreen};
     }
   }
   .currentPage {
-    background-color: ${variables.colors.lightGreen};
+    background-color: ${props => props.theme.colors.lightGreen};
   }
 `;
 
