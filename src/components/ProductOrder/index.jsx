@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, DropDown, Button } from './style';
 
 export const ProductOrder = ({ option }) => {
+    
     return (
         <section className="order">
             <Form>

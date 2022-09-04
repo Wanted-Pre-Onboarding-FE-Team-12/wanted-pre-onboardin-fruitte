@@ -2,6 +2,7 @@ import React from 'react';
 import { Feature, Content, Review, Question } from './style';
 
 export const ProductFeature = ({productInfoImgUrl}) => {
+    
     return (
         <Feature>
             <Content id='content'>

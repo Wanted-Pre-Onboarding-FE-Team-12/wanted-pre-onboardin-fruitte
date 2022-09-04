@@ -6,7 +6,9 @@ import {
 import { ProductOrder } from '@components/ProductOrder/index.jsx';
 
 export const ProductOverview = ({ data }) => {
+
     let {imgUrl, name, message, deliveryInfo, option} = data;
+    
     return (
         <Overview>
             <Thumbnail>
