@@ -1,11 +1,7 @@
 import variables from '@styles/theme';
 import { ProductImage } from './style';
 
-/**
- * dummy 값으로 화면 보여주기
- */
 const ProductInfo = ({ orderInfo }) => {
-  // orderInfo 변수로 저장
   const { name, essential, unit, quantity, price, deliveryCharge, imgUrl } = orderInfo;
 
   return (
