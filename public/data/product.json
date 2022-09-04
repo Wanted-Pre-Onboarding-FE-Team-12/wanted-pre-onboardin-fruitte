@@ -9,7 +9,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.7,
-    "origin": "서울시",
+    "message": "거창 오가네체리자두",
+    "delivery_info": [
+      {
+        "origin": "서울시",
+        "is_delivery": true,
+        "price": 3000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -28,7 +35,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.5,
-    "origin": "경기도",
+    "message": "충남의 알프스라 불리는 청정지역 청양에서 무농약으로 재배한 생 블루베리",
+    "delivery_info": [
+      {
+        "origin": "경기도",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -57,7 +71,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.5,
-    "origin": "강원도",
+    "message": "미생물을 이용한 친환경 농법으로 길러 더욱 맛있는 국내산 친환경 생 아스파라거스",
+    "delivery_info": [
+      {
+        "origin": "강원도",
+        "is_delivery": true,
+        "price": 4000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -81,7 +102,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.9,
-    "origin": "충청북도",
+    "message": "완도 바람 맞고 자란 비타민 가득 유자를 청으로 만나보세요! 환절기에 딱! 목감기에 딱! 건강한 유자로 맛있게 담근 청년 파머의 유자청",
+    "delivery_info": [
+      {
+        "origin": "충청북도",
+        "is_delivery": true,
+        "price": 4000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -110,7 +138,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.9,
-    "origin": "충청남도",
+    "message": "한 포로 챙기는 황금 사과! 꿀보다 더 달달한 생사과즙으로 아침식사대용, 간식대용으로 하루의 건강과 달콤함을 챙겨보세요!",
+    "delivery_info": [
+      {
+        "origin": "충청남도",
+        "is_delivery": true,
+        "price": 4000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -129,7 +164,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.8,
-    "origin": "인천광역시",
+    "message": "달달함과 아삭함이 살아있는 껍찔째 먹는 동결건조 사과칩 영양만점 간식으로 언제 어디서나 모두의 입맛에 딱! NO 제초제, NO 화학비료, NO 불필요한 잎따기를 철저히 지킨 사과의 고장 충남 예산의 건강한 3무 사과를 껍찔째 즐겨보세요!",
+    "delivery_info": [
+      {
+        "origin": "인천광역시",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -148,7 +190,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.4,
-    "origin": "제주도",
+    "message": "감귤을 즐기는 색다른 방법, 100% 착즙으로 마시는 감귤 제주 감귤이 고스란히 담긴 주스로 입맛도 돋우고, 건강도 지키세요!!",
+    "delivery_info": [
+      {
+        "origin": "제주도",
+        "is_delivery": true,
+        "price": 4000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -177,7 +226,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.5,
-    "origin": "전라북도",
+    "message": "감귤을 즐기는 색다른 방법! 상큼함과 달달함이 고루 담겨진 바삭한 감귤칩을 만나보세요. 영양은 그대로~ 언제 어디서나 맛 볼 수 있는 감귤과자!",
+    "delivery_info": [
+      {
+        "origin": "경상남도",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -201,7 +257,14 @@
     "is_sale": false,
     "is_visible": true,
     "sale_price": 1,
-    "origin": "경상남도",
+    "message": "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 간장 엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다.",
+    "delivery_info": [
+      {
+        "origin": "경상북도",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -230,7 +293,14 @@
     "is_sale": false,
     "is_visible": true,
     "sale_price": 1,
-    "origin": "경상북도",
+    "message": "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 된장 엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다.",
+    "delivery_info": [
+      {
+        "origin": "경상북도",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -249,7 +319,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.8,
-    "origin": "서울특별시",
+    "message": "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 된장 엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다.",
+    "delivery_info": [
+      {
+        "origin": "서울특별시",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -268,7 +345,14 @@
     "is_sale": false,
     "is_visible": true,
     "sale_price": 0.5,
-    "origin": "인천광역시",
+    "message": "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 고추장 엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다.",
+    "delivery_info": [
+      {
+        "origin": "인천광역시",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -297,7 +381,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.5,
-    "origin": "경기도",
+    "message": "거창 오가네체리자두",
+    "delivery_info": [
+      {
+        "origin": "서울시",
+        "is_delivery": true,
+        "price": 3000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -321,7 +412,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.9,
-    "origin": "강원도",
+    "message": "충남의 알프스라 불리는 청정지역 청양에서 무농약으로 재배한 생 블루베리",
+    "delivery_info": [
+      {
+        "origin": "경기도",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -350,7 +448,14 @@
     "is_sale": false,
     "is_visible": true,
     "sale_price": 1,
-    "origin": "인천광역시",
+    "message": "미생물을 이용한 친환경 농법으로 길러 더욱 맛있는 국내산 친환경 생 아스파라거스",
+    "delivery_info": [
+      {
+        "origin": "강원도",
+        "is_delivery": true,
+        "price": 4000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -369,7 +474,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 29000,
-    "origin": "경상남도",
+    "message": "완도 바람 맞고 자란 비타민 가득 유자를 청으로 만나보세요! 환절기에 딱! 목감기에 딱! 건강한 유자로 맛있게 담근 청년 파머의 유자청",
+    "delivery_info": [
+      {
+        "origin": "충청북도",
+        "is_delivery": true,
+        "price": 4000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -388,7 +500,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 52000,
-    "origin": "경상북도",
+    "message": "한 포로 챙기는 황금 사과! 꿀보다 더 달달한 생사과즙으로 아침식사대용, 간식대용으로 하루의 건강과 달콤함을 챙겨보세요!",
+    "delivery_info": [
+      {
+        "origin": "충청남도",
+        "is_delivery": true,
+        "price": 4000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -417,7 +536,14 @@
     "is_sale": false,
     "is_visible": true,
     "sale_price": 1,
-    "origin": "제주도",
+    "message": "달달함과 아삭함이 살아있는 껍찔째 먹는 동결건조 사과칩 영양만점 간식으로 언제 어디서나 모두의 입맛에 딱! NO 제초제, NO 화학비료, NO 불필요한 잎따기를 철저히 지킨 사과의 고장 충남 예산의 건강한 3무 사과를 껍찔째 즐겨보세요!",
+    "delivery_info": [
+      {
+        "origin": "인천광역시",
+        "is_delivery": true,
+        "price": 2000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -441,7 +567,14 @@
     "is_sale": false,
     "is_visible": true,
     "sale_price": 1,
-    "origin": "경상남도",
+    "message": "감귤을 즐기는 색다른 방법, 100% 착즙으로 마시는 감귤 제주 감귤이 고스란히 담긴 주스로 입맛도 돋우고, 건강도 지키세요!!",
+    "delivery_info": [
+      {
+        "origin": "제주도",
+        "is_delivery": true,
+        "price": 4000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -470,7 +603,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 57000,
-    "origin": "제주도",
+    "message": "감귤을 즐기는 색다른 방법! 상큼함과 달달함이 고루 담겨진 바삭한 감귤칩을 만나보세요. 영양은 그대로~ 언제 어디서나 맛 볼 수 있는 감귤과자!",
+    "delivery_info": [
+      {
+        "origin": "경상남도",
+        "is_delivery": true,
+        "price": 5000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -489,7 +629,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.9,
-    "origin": "전라남도",
+    "message": "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 간장 엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다.",
+    "delivery_info": [
+      {
+        "origin": "경상북도",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -508,7 +655,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.7,
-    "origin": "전라북도",
+    "message": "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 된장 엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다.",
+    "delivery_info": [
+      {
+        "origin": "경상북도",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -537,7 +691,14 @@
     "is_sale": false,
     "is_visible": true,
     "sale_price": 1,
-    "origin": "경상남도",
+    "message": "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 된장 엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다.",
+    "delivery_info": [
+      {
+        "origin": "서울특별시",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -561,7 +722,14 @@
     "is_sale": false,
     "is_visible": true,
     "sale_price": 1,
-    "origin": "충청북도",
+    "message": "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 고추장 엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다.",
+    "delivery_info": [
+      {
+        "origin": "인천광역시",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -590,7 +758,14 @@
     "is_sale": false,
     "is_visible": true,
     "sale_price": 1,
-    "origin": "충청남도",
+    "message": "거창 오가네체리자두",
+    "delivery_info": [
+      {
+        "origin": "서울시",
+        "is_delivery": true,
+        "price": 3000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -609,7 +784,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.9,
-    "origin": "충청남도",
+    "message": "충남의 알프스라 불리는 청정지역 청양에서 무농약으로 재배한 생 블루베리",
+    "delivery_info": [
+      {
+        "origin": "경기도",
+        "is_delivery": true,
+        "price": 0
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -628,7 +810,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.8,
-    "origin": "충청남도",
+    "message": "미생물을 이용한 친환경 농법으로 길러 더욱 맛있는 국내산 친환경 생 아스파라거스",
+    "delivery_info": [
+      {
+        "origin": "강원도",
+        "is_delivery": true,
+        "price": 4000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -657,7 +846,14 @@
     "is_sale": false,
     "is_visible": true,
     "sale_price": 40000,
-    "origin": "충청남도",
+    "message": "완도 바람 맞고 자란 비타민 가득 유자를 청으로 만나보세요! 환절기에 딱! 목감기에 딱! 건강한 유자로 맛있게 담근 청년 파머의 유자청",
+    "delivery_info": [
+      {
+        "origin": "충청북도",
+        "is_delivery": true,
+        "price": 4000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -681,7 +877,14 @@
     "is_sale": true,
     "is_visible": true,
     "sale_price": 0.3,
-    "origin": "충청남도",
+    "message": "한 포로 챙기는 황금 사과! 꿀보다 더 달달한 생사과즙으로 아침식사대용, 간식대용으로 하루의 건강과 달콤함을 챙겨보세요!",
+    "delivery_info": [
+      {
+        "origin": "충청남도",
+        "is_delivery": true,
+        "price": 4000
+      }
+    ],
     "option": [
       {
         "id": 1,
@@ -710,7 +913,14 @@
     "is_sale": false,
     "is_visible": true,
     "sale_price": 1,
-    "origin": "충청남도",
+    "message": "달달함과 아삭함이 살아있는 껍찔째 먹는 동결건조 사과칩 영양만점 간식으로 언제 어디서나 모두의 입맛에 딱! NO 제초제, NO 화학비료, NO 불필요한 잎따기를 철저히 지킨 사과의 고장 충남 예산의 건강한 3무 사과를 껍찔째 즐겨보세요!",
+    "delivery_info": [
+      {
+        "origin": "인천광역시",
+        "is_delivery": true,
+        "price": 2000
+      }
+    ],
     "option": [
       {
         "id": 1,
