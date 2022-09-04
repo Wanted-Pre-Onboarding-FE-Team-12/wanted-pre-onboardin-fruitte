@@ -1,25 +1,27 @@
-import { SubTitle } from './style';
+import { SummaryContainer, SubTitle, SummaryBox, Word, Price, Line, PriceInfo } from './style';
 
 const OrderSummary = ({ orderInfo }) => {
   const { price, deliveryCharge } = orderInfo;
 
   return (
-    <div>
+    <>
       <SubTitle>주문 요약</SubTitle>
-      <p>
-        <span>상품 가격</span>
-        <span>{price}원</span>
-      </p>
-      <p>
-        <span>배송비</span>
-        <span>{deliveryCharge === 0 ? '무료' : deliveryCharge}원</span>
-      </p>
-      <hr />
-      <p>
-        <span>총 주문 금액</span>
-        <span>{price}원</span>
-      </p>
-    </div>
+      <SummaryContainer>
+        <SummaryBox>
+          <Word>상품 가격</Word>
+          <Price>{price}원</Price>
+        </SummaryBox>
+        <SummaryBox>
+          <Word>배송비</Word>
+          <Price>{deliveryCharge === 0 ? '무료' : `${deliveryCharge}원`}</Price>
+        </SummaryBox>
+        <Line />
+        <PriceInfo>
+          <span>총 주문 금액</span>
+          <span>{price === 0 ? '무료' : `${price}원`}</span>
+        </PriceInfo>
+      </SummaryContainer>
+    </>
   );
 };
 

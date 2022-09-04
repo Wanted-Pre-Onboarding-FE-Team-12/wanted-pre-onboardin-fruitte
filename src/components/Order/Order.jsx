@@ -9,51 +9,35 @@ import OrderPaymentInfo from './OrderPaymentInfo';
 import OrderAgreePayment from './OrderAgreePayment';
 import ShippingInfo from './ShippingInfo';
 import Layout from '@layouts/index';
-import { Container, Title } from './style';
+import { Container, LeftContainer, RightContainer, Title } from './style';
 
+// scriptUrl: kakao 우편번호 서비스의 스크립트 주소
 const ScriptUrl = '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
 
 const Order = () => {
-  // 주문 상품 정보 저장
   const [orderInfo] = useRecoilValue(order);
-
-  // 주문자 이름 정보 상태값
+  /** 주문 관련 상태값 */
   const [name, setName] = useState('');
-  // 주문자 연락처 상태값
   const [contactNumber, setContactNumber] = useState('');
-  // 주문자 이메일 상태값
   const [email, setEmail] = useState('');
-  // 주문자 정보 동일 상태값
   const [isOrderSame, setIsOrderSame] = useState(false);
-  // 배송 수령인 상태값
+  /** 배송 관련 상태값 */
   const [orderPerson, setOrderPerson] = useState('');
-  // 배송 연락처 상태값
   const [orderContactNumber, setOrderContactNumber] = useState(null);
-  // 우편번호 상태값
   const [zipCode, setZipCode] = useState(null);
-  // 주소 상태값
   const [address, setAddress] = useState('');
-  // 상세주소 상태값
   const [extraAddress, setExtraAddress] = useState('');
-  // 배송 메모 상태값
   const [orderMessage, setOrderMessage] = useState('');
-  // 배송 메모 사용자 추가 상태값
   const [orderUserMessage, setUserOrderMessage] = useState('');
-  // 결제 수단 상태값 (신용카드, 무통장입금)
-  const [paymentType, setPaymentType] = useState('creditCard'); // 무통장 입금 cashDeposit
-  // 무통장 입금 선택 시 입금자명 상태값
-  const [depositor, setDepositor] = useState(''); // 미입력시 주문자명
-  // 현금 영수증 신청 상태값
+  /** 결제 관련 상태값 */
+  const [paymentType, setPaymentType] = useState('creditCard');
+  const [depositor, setDepositor] = useState('');
   const [isDeposit, setIsDeposit] = useState(false);
-  // 소득 공제 | 지출 증빙 여부 상태값
-  const [cashReceipt, setCashReceipt] = useState('incomeDeduction'); // 지출증빙 proofExpenditure
-  // 소득 공제 | 지출 증빙 선택 시 휴대전화 번호 | 사업자 번호
+  const [cashReceipt, setCashReceipt] = useState('incomeDeduction');
   const [paymentNumber, setPaymentNumber] = useState('');
-  // 동의 및 결제 전체 동의 상태값
+  /** 결제 상태값 */
   const [isWholeAgreement, setIsWholeAgreement] = useState(false);
-  // // 개인정보 수집, 동의 상태값
   const [isPersonalInfo, setIsPersonalInfo] = useState(false);
-  // // 구매조건 확인, 결제 진행 동의 상태값
   const [isPaymentConfirm, setIsPaymentConfirm] = useState(false);
   // // 약관 보기 상태값
   // const [isTermsCondition, setIsTermsCondition] = useState(false);
@@ -96,9 +80,7 @@ const Order = () => {
   const handleUpdateOrderMessage = useCallback(e => {
     const orderMessageType = e.target.value;
 
-    // 선택한 option 값 orderType에 업데이트
     if (orderMessageType === 'custom') {
-      // 사용자 직접 입력일 경우, 입력한 input 값 업데이트 필요 -> orderUserMessage에
       setOrderMessage(orderMessageType);
     } else {
       setOrderMessage(orderMessageType);
@@ -158,35 +140,13 @@ const Order = () => {
     setIsPaymentConfirm(!isPaymentConfirm);
   }, [isPaymentConfirm, isPersonalInfo]);
 
-  /**
-   * address service 추가
-   * 필요한 값: 우편번호, 주소, 상세 주소
-   *
-   * zonecode: 우편번호
-   * address: 기본 주소(검색 결과의 첫 줄에 나오는 주소, 지번 입력-> 첫 줄, 도로명 입력 -> 첫 줄) / 내가 검색한 주소 그대로
-   * addressType: 검색한 주소 스타일, R(도로명), J(지번)
-   * userSelectedType: R/J 검색 결과에서 사용자가 선택한 주소의 타입(결과 중 선택한 주소 스타일)
-   * roadAddress: 도로명 주소
-   * jibunAddress: 지번 주소
-   *
-   * bname: 법정동/법정리 이름
-   * buildingName: 건물명
-   */
-
   // api script 주소 넣어서 함수 가져오기
   const handleFindZipCode = usePostCode(ScriptUrl);
 
   const handleComplete = useCallback(data => {
-    // data가 있다면
     if (data) {
-      // data에서 필요한 값들 가져오기
       let { zonecode, address, userSelectedType, roadAddress, jibunAddress } = data;
-
-      // 우편 번호 update
       handleUpdateZipCode(zonecode);
-
-      // 주소 update
-      // 검색한 주소가 있고 결과 중 선택한 주소가 도로명 주소 일 때 | 지번 일 때
       if (address !== '' && userSelectedType === 'R') {
         handleUpdateAddress(roadAddress);
       } else if (address !== '' && userSelectedType === 'J') {
@@ -203,26 +163,45 @@ const Order = () => {
 
   // 주문자 정보 동일 여부에 따라 배송 정보 수령인/연락처 핸들링하는 함수
   useEffect(() => {
-    // orderSame이 true이면 동일
     if (isOrderSame) {
       setOrderPerson(name);
       setOrderContactNumber(contactNumber);
-    }
-    // orderSame이 false이면 다른 것
-    else {
+    } else {
       setOrderPerson('');
       setOrderContactNumber('');
     }
   }, [isOrderSame]);
 
   // 필수 입력값 공백인지 체크 -> 다 통과할 때 상태 저장 => 리코일에 저장하기
-  const handleOrderForm = e => {};
+  const handleOrderForm = e => {
+    if (
+      name !== '' &&
+      contactNumber !== '' &&
+      orderPerson !== '' &&
+      orderContactNumber !== '' &&
+      zipCode !== '' &&
+      address !== '' &&
+      extraAddress !== '' &&
+      orderMessage !== ''
+    ) {
+      console.log(
+        name,
+        contactNumber,
+        orderPerson,
+        orderContactNumber,
+        zipCode,
+        address,
+        extraAddress,
+        orderMessage,
+      );
+    }
+  };
 
   return (
     <Layout>
+      <Title>결제 페이지</Title>
       <Container>
-        <div>
-          <Title>결제 페이지</Title>
+        <LeftContainer>
           <OrderProductInfo orderInfo={orderInfo} />
           {/** 주문자 정보 */}
           <OrderPersonInfo
@@ -249,8 +228,8 @@ const Order = () => {
             address={address}
             extraAddress={extraAddress}
           />
-        </div>
-        <div>
+        </LeftContainer>
+        <RightContainer>
           {/** 주문 요약 */}
           <OrderSummary orderInfo={orderInfo} />
           {/** 결제 수단 */}
@@ -276,7 +255,7 @@ const Order = () => {
             isPersonalInfo={isPersonalInfo}
             isPaymentConfirm={isPaymentConfirm}
           />
-        </div>
+        </RightContainer>
       </Container>
     </Layout>
   );
