@@ -1,11 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { Form, DropDown, Button, TotalPrice } from './style';
 import ProductSelectList from '@components/ProductSelectList';
+import { useNavigate } from 'react-router-dom';
 
-export const ProductOrder = ({ option, goToOrderHandle }) => {
-    
+export const ProductOrder = ({ data, option }) => {
+    const navigate = useNavigate();
     const [optionSelect, setOptionSelect] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
+
+    const orderData = {
+        key: 'order',
+        default: [
+            {
+                name: data.name,
+                unit: '10 봉지',
+                quantity: 1,
+                price: totalPrice,
+                deliveryCharge: data.delivery_info[0].price,
+                imgUrl: data.imgUrl,
+            },
+        ],
+    }
+
+    const goToOrder = () => {
+        alert('order페이지 이동')
+        navigate(`/order`, { state: orderData });
+    };
 
     useEffect(()=>{
         console.log(totalPrice)
@@ -52,7 +72,7 @@ export const ProductOrder = ({ option, goToOrderHandle }) => {
                 <span>원</span>
             </TotalPrice>
             <div className="orderButtons">
-                <Button onClick={goToOrderHandle}>구매하기</Button>
+                <Button onClick={goToOrder}>구매하기</Button>
                 <Button cart>장바구니</Button>
             </div>
         </section>

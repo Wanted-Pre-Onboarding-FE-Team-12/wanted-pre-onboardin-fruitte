@@ -1,32 +1,14 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Layout from '@layouts/index';
 import { Wrapper, Navigation, NavButton} from './style';
 import { ProductOverview } from '@components/ProductOverview/index.jsx';
 import { ProductFeature } from '@components/ProductFeature/index.jsx';
 
 export const ProductDetail = () => {
-    const navigate = useNavigate();
     const location = useLocation();
     const data = location.state;
     
-    const orderData = {
-        key: 'order',
-        default: [
-            {
-                name: data.name,
-                unit: '10 봉지',
-                quantity: 1,
-                price: 65000,
-                deliveryCharge: data.delivery_info[0].price,
-                imgUrl: data.imgUrl,
-            },
-        ],
-    }
-
-    const goToOrderHandle = () => {
-        navigate(`/order`, { state: orderData });
-    };
     const onLinkClick = (event) => {
         //스크롤이벤트
         //let getMeTo = document.getElementById(name);
@@ -35,7 +17,7 @@ export const ProductDetail = () => {
     return (
         <Layout>
             <Wrapper>
-                <ProductOverview data={data} goToOrderHandle={goToOrderHandle} />
+                <ProductOverview data={data} />
                 <Navigation>
                     <NavButton onClick={onLinkClick}>상품정보</NavButton>
                     <NavButton onClick={onLinkClick}>리뷰</NavButton>

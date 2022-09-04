@@ -36,7 +36,7 @@ export const ProductOverview = ({ data }) => {
                         })}
                     </DeliveryInfo>
                 </Description>
-                <ProductOrder option={option} />
+                <ProductOrder option={option} data={data} />
             </Selling>
         </Overview>
     );
