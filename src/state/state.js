@@ -15,3 +15,8 @@ export const order = atom({
     },
   ],
 });
+
+export const productOptionSelectState = atom({
+  key: 'productOptionSelectState',
+  default: [],
+});

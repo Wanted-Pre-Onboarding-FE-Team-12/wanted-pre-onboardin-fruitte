@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { productOptionSelectState } from '@state/state';
 import { Form, DropDown, Button, TotalPrice } from './style';
 import ProductSelectList from '@components/ProductSelectList';
 import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 
 export const ProductOrder = ({ data, option }) => {
   const navigate = useNavigate();
   const [optionSelect, setOptionSelect] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const orderData = {
-    key: 'order',
-    default: [
-      {
-        name: data.name,
-        unit: '10 봉지',
-        quantity: 1,
-        price: totalPrice,
-        deliveryCharge: data.delivery_info[0].price,
-        imgUrl: data.imgUrl,
-      },
-    ],
-  };
+  const setProductOptionSelectState = useSetRecoilState(productOptionSelectState);
 
   const goToOrder = () => {
-    alert('order페이지 이동');
-    navigate(`/order`, { state: orderData });
+    const orderData = {
+      key: 'order',
+      default: [
+        {
+          name: data.name,
+          option: optionSelect,
+          quantity: 1,
+          price: totalPrice,
+          deliveryCharge: data.delivery_info[0].price,
+          imgUrl: data.imgUrl,
+        },
+      ],
+    };
+    setProductOptionSelectState(orderData);
+    navigate('/order');
   };
 
-  useEffect(() => {
-    console.log(totalPrice);
-  }, [totalPrice]);
   const handleChange = event => {
     const targetKey = event.target.value;
     if (targetKey === 'default') {
@@ -38,7 +38,6 @@ export const ProductOrder = ({ data, option }) => {
     if (optionSelect && !optionSelect.find(item => item.id === option[targetKey].id)) {
       const currentSelected = { ...option[targetKey], count: 1 };
       setOptionSelect(oldSelectList => [...oldSelectList, currentSelected]);
-      console.log(currentSelected);
       setTotalPrice(old => old + currentSelected.price);
     }
   };
