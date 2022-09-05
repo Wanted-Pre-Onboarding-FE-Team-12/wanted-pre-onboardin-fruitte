@@ -9,7 +9,7 @@ const OrderSummary = ({ orderInfo }) => {
       <SummaryContainer>
         <SummaryBox>
           <Word>상품 가격</Word>
-          <Price>{price}원</Price>
+          <Price>{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
         </SummaryBox>
         <SummaryBox>
           <Word>배송비</Word>
@@ -18,7 +18,9 @@ const OrderSummary = ({ orderInfo }) => {
         <Line />
         <PriceInfo>
           <span>총 주문 금액</span>
-          <span>{price === 0 ? '무료' : `${price}원`}</span>
+          <span>
+            {price === 0 ? '무료' : `${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`}
+          </span>
         </PriceInfo>
       </SummaryContainer>
     </>

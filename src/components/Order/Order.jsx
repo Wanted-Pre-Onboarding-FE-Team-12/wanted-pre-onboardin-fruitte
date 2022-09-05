@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+// import { useNavigate } from 'react-router-dom';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { useDaumPostcodePopup as usePostCode } from 'react-daum-postcode';
 import { order } from '@state/state';
 import OrderProductInfo from '@components/Order/OrderProductInfo';
@@ -11,11 +12,12 @@ import ShippingInfo from './ShippingInfo';
 import Layout from '@layouts/index';
 import { Container, LeftContainer, RightContainer, Title } from './style';
 
-// scriptUrl: kakao 우편번호 서비스의 스크립트 주소
 const ScriptUrl = '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
 
 const Order = () => {
+  // const navigate = useNavigate();
   const [orderInfo] = useRecoilValue(order);
+  const [orderFormData, setOrderFormDate] = useRecoilState(order);
   /** 주문 관련 상태값 */
   const [name, setName] = useState('');
   const [contactNumber, setContactNumber] = useState('');
@@ -39,25 +41,24 @@ const Order = () => {
   const [isWholeAgreement, setIsWholeAgreement] = useState(false);
   const [isPersonalInfo, setIsPersonalInfo] = useState(false);
   const [isPaymentConfirm, setIsPaymentConfirm] = useState(false);
-  // // 약관 보기 상태값
-  // const [isTermsCondition, setIsTermsCondition] = useState(false);
+  /** 약관 보기 상태값 */
 
-  // 주문자 이름 update 함수
+  /**  주문자 이름 update 함수 */
   const handleUpdateName = useCallback(e => setName(e.target.value), []);
 
-  // 주문자 연락처 update 함수
+  /**  주문자 연락처 update 함수 */
   const handleUpdateContactNumber = useCallback(e => setContactNumber(e.target.value), []);
 
-  // 주문자 이메일 update 함수
+  /**  주문자 이메일 update 함수 */
   const handleUpdateEmail = useCallback(e => setEmail(e.target.value), []);
 
-  // 주문자 정보 동일 update 함수
+  /**  주문자 정보 동일 update 함수 */
   const handleUpdateSameOrderPerson = useCallback(
     () => setIsOrderSame(!isOrderSame),
     [isOrderSame],
   );
 
-  // 직접 배송 수령인, 연락처 넣는 경우
+  /**  직접 배송 수령인, 연락처 넣는 경우 */
   const handleOrderInfo = useCallback(e => {
     const { id } = e.target;
     if (id === 'recipient-name') {
@@ -67,16 +68,16 @@ const Order = () => {
     }
   }, []);
 
-  // 우편번호 update 함수
+  /**  우편번호 update 함수 */
   const handleUpdateZipCode = useCallback(code => setZipCode(code), []);
 
-  // 주소 update 함수
+  /**  주소 update 함수 */
   const handleUpdateAddress = useCallback(address => setAddress(address), []);
 
-  // 상세주소 update 함수
+  /**  상세주소 update 함수 */
   const handleUpdateExtraAddress = useCallback(e => setExtraAddress(e.target.value), []);
 
-  // 배송 메모 update 함수
+  /**  배송 메모 update 함수 */
   const handleUpdateOrderMessage = useCallback(e => {
     const orderMessageType = e.target.value;
 
@@ -87,28 +88,28 @@ const Order = () => {
     }
   }, []);
 
-  // 배송 메모 사용자 추가 update 함수
+  /**  배송 메모 사용자 추가 update 함수 */
   const handleUpdateOrderUserMessage = useCallback(e => {
     const customMessage = e.target.value;
     setUserOrderMessage(customMessage);
   }, []);
 
-  // 결제수단 상태 update 함수
+  /**  결제수단 상태 update 함수 */
   const handleUpdatePaymentType = useCallback(e => setPaymentType(e.target.id), []);
 
-  // 무통장입금 - 입금자명 update 함수
+  /**  무통장입금 - 입금자명 update 함수 */
   const handleUpdateDepositor = useCallback(e => setDepositor(e.target.value), []);
 
-  // 현금 영수증 신청 체크 update 함수
+  /**  현금 영수증 신청 체크 update 함수 */
   const handleUpdateDeposit = useCallback(() => setIsDeposit(!isDeposit), [isDeposit]);
 
-  // 현금 영수증 신청 시 소득 공제용 | 지출 증빙용 선택 update 함수
+  /**  현금 영수증 신청 시 소득 공제용 | 지출 증빙용 선택 update 함수 */
   const handleUpdateCashReceipt = useCallback(e => setCashReceipt(e.target.id), []);
 
-  // 현금 영수증 신청 시 핸드폰 번호 | 사업자 번호 update 함수
+  /**  현금 영수증 신청 시 핸드폰 번호 | 사업자 번호 update 함수 */
   const handleUpdatePaymentNumber = useCallback(e => setPaymentNumber(e.target.value), []);
 
-  // 결제 전체 동의 update 함수
+  /**  결제 전체 동의 update 함수 */
   const handleIsWholeAgreement = useCallback(() => {
     if (isWholeAgreement) {
       setIsPersonalInfo(false);
@@ -120,7 +121,7 @@ const Order = () => {
     setIsWholeAgreement(!isWholeAgreement);
   }, [isWholeAgreement]);
 
-  // 개인정보 수집, 이용 동의 update 함수
+  /**  개인정보 수집, 이용 동의 update 함수 */
   const handleIsPersonalInfo = useCallback(() => {
     if (isPersonalInfo && isPaymentConfirm) {
       setIsWholeAgreement(false);
@@ -130,7 +131,7 @@ const Order = () => {
     setIsPersonalInfo(!isPersonalInfo);
   }, [isPersonalInfo, isPaymentConfirm]);
 
-  // 구매 조건 확인, 결제 진행 동의 update 함수
+  /**  구매 조건 확인, 결제 진행 동의 update 함수 */
   const handleIsPaymentConfirm = useCallback(() => {
     if (isPersonalInfo && isPaymentConfirm) {
       setIsWholeAgreement(false);
@@ -140,7 +141,6 @@ const Order = () => {
     setIsPaymentConfirm(!isPaymentConfirm);
   }, [isPaymentConfirm, isPersonalInfo]);
 
-  // api script 주소 넣어서 함수 가져오기
   const handleFindZipCode = usePostCode(ScriptUrl);
 
   const handleComplete = useCallback(data => {
@@ -155,13 +155,11 @@ const Order = () => {
     }
   }, []);
 
-  // 주소 검색 서비스 함수
   const handleAddressSearchClick = useCallback(
     () => handleFindZipCode({ onComplete: handleComplete }),
     [],
   );
 
-  // 주문자 정보 동일 여부에 따라 배송 정보 수령인/연락처 핸들링하는 함수
   useEffect(() => {
     if (isOrderSame) {
       setOrderPerson(name);
@@ -172,7 +170,7 @@ const Order = () => {
     }
   }, [isOrderSame]);
 
-  // 필수 입력값 공백인지 체크 -> 다 통과할 때 상태 저장 => 리코일에 저장하기
+  /** 필수 입력값 공백인지 체크 -> 다 통과할 때 상태 저장 => 리코일에 저장하기 */
   const handleOrderForm = e => {
     if (
       name !== '' &&
@@ -182,7 +180,7 @@ const Order = () => {
       zipCode !== '' &&
       address !== '' &&
       extraAddress !== '' &&
-      orderMessage !== ''
+      orderUserMessage !== ''
     ) {
       console.log(
         name,
@@ -192,9 +190,38 @@ const Order = () => {
         zipCode,
         address,
         extraAddress,
-        orderMessage,
+        orderMessage === 'custom' ? orderUserMessage : orderMessage,
       );
+      /**
+       * id,
+       * name,
+       * price,
+       * delivery_info([{info}]),
+       * sale_price,
+       * imgUrl,
+       * option([{info}]),
+       * is_best,
+       * is_sale
+       *
+       */
+      // const orderData = { id: orderInfo.id, name, price: orderInfo.price };
+      setOrderFormDate([
+        {
+          id: orderInfo.id,
+          name,
+          price: orderInfo.price,
+          delivery_info: [{ address: `${address} ${extraAddress}` }],
+          sale_price: orderInfo.price,
+          imgUrl: orderInfo.imgUrl,
+        },
+      ]);
+      handleOrderDetailPage();
     }
+  };
+
+  // 주문 완료 페이지 이동
+  const handleOrderDetailPage = () => {
+    console.log(orderFormData);
   };
 
   return (
