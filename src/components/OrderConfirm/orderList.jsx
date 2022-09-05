@@ -19,6 +19,7 @@ import {
   ProductHeader,
   OrderIdWrap,
 } from './style';
+import { CONFIRM_DATA } from 'src/constants/data/CONFIRM_DATA';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -40,10 +41,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const OrderList = ({ goods }) => {
+const OrderList = () => {
   const randomDate = (start, end) => {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
   };
+
+  const goods = CONFIRM_DATA;
 
   return (
     <TableContainer component={Paper} style={{ width: '1200px' }}>
