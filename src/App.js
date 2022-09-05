@@ -6,7 +6,6 @@ import AdminProduct from '@pages/AdminProduct';
 import AddProduct from '@pages/AddProduct';
 import { useRecoilState } from 'recoil';
 import { productState } from 'src/store/store';
-import OrderConfirm from '@pages/OrderConfirm';
 
 function App() {
   const [, setProduct] = useRecoilState(productState);
@@ -24,7 +23,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<List />} />
-        <Route path="/orderconfirm" element={<OrderConfirm />} />
         <Route path="/admin" element={<Admin />}>
           <Route path="management" element={<AdminProduct />} />
           <Route path="addproduct" element={<AddProduct />} />
