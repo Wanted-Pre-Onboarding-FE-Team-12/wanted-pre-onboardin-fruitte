@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import Admin from '@pages/Admin';
 import List from '@pages/List';
+import Order from '@components/Order/Order';
+import ProductMg from '@pages/ProductMg';
 import AdminProduct from '@pages/AdminProduct';
 import AddProduct from '@pages/AddProduct';
 import { useRecoilState } from 'recoil';
@@ -23,6 +25,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<List />} />
+        <Route path="/order" element={<Order />} />
         <Route path="/admin" element={<Admin />}>
           <Route path="management" element={<AdminProduct />} />
           <Route path="addproduct" element={<AddProduct />} />
