@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { useDaumPostcodePopup as usePostCode } from 'react-daum-postcode';
-import { order } from '@state/state';
+import { productOptionSelectState } from '@state/state';
 import OrderProductInfo from '@components/Order/OrderProductInfo';
 import OrderPersonInfo from './OrderPersonInfo';
 import OrderSummary from '@components/Order/OrderSummary';
@@ -15,9 +15,10 @@ import { Container, LeftContainer, RightContainer, Title } from './style';
 const ScriptUrl = '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
 
 const Order = () => {
-  // const navigate = useNavigate();
-  const [orderInfo] = useRecoilValue(order);
-  const [orderFormData, setOrderFormDate] = useRecoilState(order);
+  const navigate = useNavigate();
+  const data = useRecoilValue(productOptionSelectState);
+  const orderedData = data.default[0];
+  const [, setOrderFormDate] = useRecoilState(productOptionSelectState);
   /** 주문 관련 상태값 */
   const [name, setName] = useState('');
   const [contactNumber, setContactNumber] = useState('');
@@ -172,16 +173,6 @@ const Order = () => {
 
   /** 필수 입력값 공백인지 체크 -> 다 통과할 때 상태 저장 => 리코일에 저장하기 */
   const handleOrderForm = e => {
-    // console.log(
-    //   name,
-    //   contactNumber,
-    //   orderPerson,
-    //   orderContactNumber,
-    //   zipCode,
-    //   address,
-    //   extraAddress,
-    //   orderMessage === 'custom' ? orderUserMessage : orderMessage,
-    // );
     const convertOrderMessage = orderMessage === 'custom' ? orderUserMessage : orderMessage;
     if (
       name !== '' &&
@@ -193,38 +184,14 @@ const Order = () => {
       extraAddress !== '' &&
       convertOrderMessage !== ''
     ) {
-      console.log(
-        name,
-        contactNumber,
-        orderPerson,
-        orderContactNumber,
-        zipCode,
-        address,
-        extraAddress,
-        convertOrderMessage,
-      );
-      /**
-       * id, name, price, delivery_info([{info}]), sale_price, imgUrl, option([{info}]), is_best, is_sale
-       * id,
-       * name,
-       * price,
-       * delivery_info([{info}]),
-       * sale_price,
-       * imgUrl,
-       * option([{info}]),
-       * is_best,
-       * is_sale
-       *
-       */
-      // const orderData = { id: orderInfo.id, name, price: orderInfo.price };
       setOrderFormDate([
         {
-          id: orderInfo.id,
+          id: 1,
           name,
-          price: orderInfo.price,
+          price: orderedData.price,
           delivery_info: [{ address: `${address} ${extraAddress}` }],
-          sale_price: orderInfo.price,
-          imgUrl: orderInfo.imgUrl,
+          sale_price: 7000,
+          imgUrl: orderedData.imgUrl,
         },
       ]);
       handleOrderDetailPage();
@@ -233,22 +200,15 @@ const Order = () => {
 
   // 주문 완료 페이지 이동
   const handleOrderDetailPage = () => {
-    if ('delivery_info' in orderFormData[0]) {
-      console.log(orderFormData);
-    }
-    console.log(orderInfo);
-    console.log(orderFormData);
-    // navigate('/orderconfirm');
+    navigate('/orderconfirm');
   };
-
-  // useEffect(() => {}, [orderFormData]);
 
   return (
     <Layout>
       <Title>결제 페이지</Title>
       <Container>
         <LeftContainer>
-          <OrderProductInfo orderInfo={orderInfo} />
+          <OrderProductInfo orderInfo={orderedData} />
           {/** 주문자 정보 */}
           <OrderPersonInfo
             handleUpdateName={handleUpdateName}
@@ -277,7 +237,7 @@ const Order = () => {
         </LeftContainer>
         <RightContainer>
           {/** 주문 요약 */}
-          <OrderSummary orderInfo={orderInfo} />
+          <OrderSummary orderInfo={orderedData} />
           {/** 결제 수단 */}
           <OrderPaymentInfo
             handleUpdatePaymentType={handleUpdatePaymentType}
