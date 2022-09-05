@@ -172,6 +172,17 @@ const Order = () => {
 
   /** 필수 입력값 공백인지 체크 -> 다 통과할 때 상태 저장 => 리코일에 저장하기 */
   const handleOrderForm = e => {
+    // console.log(
+    //   name,
+    //   contactNumber,
+    //   orderPerson,
+    //   orderContactNumber,
+    //   zipCode,
+    //   address,
+    //   extraAddress,
+    //   orderMessage === 'custom' ? orderUserMessage : orderMessage,
+    // );
+    const convertOrderMessage = orderMessage === 'custom' ? orderUserMessage : orderMessage;
     if (
       name !== '' &&
       contactNumber !== '' &&
@@ -180,7 +191,7 @@ const Order = () => {
       zipCode !== '' &&
       address !== '' &&
       extraAddress !== '' &&
-      orderUserMessage !== ''
+      convertOrderMessage !== ''
     ) {
       console.log(
         name,
@@ -190,9 +201,10 @@ const Order = () => {
         zipCode,
         address,
         extraAddress,
-        orderMessage === 'custom' ? orderUserMessage : orderMessage,
+        convertOrderMessage,
       );
       /**
+       * id, name, price, delivery_info([{info}]), sale_price, imgUrl, option([{info}]), is_best, is_sale
        * id,
        * name,
        * price,
@@ -221,8 +233,15 @@ const Order = () => {
 
   // 주문 완료 페이지 이동
   const handleOrderDetailPage = () => {
+    if ('delivery_info' in orderFormData[0]) {
+      console.log(orderFormData);
+    }
+    console.log(orderInfo);
     console.log(orderFormData);
+    // navigate('/orderconfirm');
   };
+
+  // useEffect(() => {}, [orderFormData]);
 
   return (
     <Layout>
