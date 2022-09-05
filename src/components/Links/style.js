@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
     letter-spacing: ${props => props.theme.text.spacing};
     text-transform: uppercase;
     cursor: pointer;
+    transition: 0.25s;
   }
 
   // 네비게이션 링크
@@ -17,8 +18,6 @@ export const Wrapper = styled.div`
       font-size: 2.4rem;
       font-weight: 300;
 
-      transition: 0.25s;
-
       &:hover {
         transform: translateY(-5px);
       }
@@ -26,4 +25,21 @@ export const Wrapper = styled.div`
   }
 
   // 관리자 페이지 링크
+  .side-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .page-link {
+      width: 100%;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 300;
+
+      &:hover {
+        background: ${props => props.theme.colors.darkGreen};
+      }
+    }
+  }
 `;

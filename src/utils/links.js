@@ -1,6 +1,6 @@
 export const userLinks = [
   { title: 'fruit store', path: '/' },
-  { title: 'fruit admin', path: '/admin' },
+  { title: 'fruit admin', path: '/admin/management' },
   { title: 'fruit order', path: '/orderconfirm' },
 ];
 
