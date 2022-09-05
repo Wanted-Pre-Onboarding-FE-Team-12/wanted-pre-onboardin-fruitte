@@ -5,6 +5,7 @@ const variables = {
     darkRed: 'hsl(360, 67%, 44%)',
     lightRed: 'hsl(360, 71%, 66%)',
     lightOrange: 'hsl(29, 74%, 92%)',
+    lightGray: 'hsl(0, 0%, 94%)',
   },
 
   sizes: {
@@ -15,7 +16,9 @@ const variables = {
     large: '4rem',
     small: '2rem',
     contentLarge: '4rem',
+    contentMedium: '3rem',
     contentSmall: '2rem',
+    contentXSmall: '1.4rem',
   },
 
   text: {
