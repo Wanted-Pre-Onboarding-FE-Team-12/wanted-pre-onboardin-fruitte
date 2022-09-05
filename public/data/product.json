@@ -472,6 +472,7 @@
     "is_best": true,
     "is_sold_out": false,
     "is_sale": true,
+<<<<<<< HEAD
     "is_visible": true,
     "sale_price": 29000,
     "message": "완도 바람 맞고 자란 비타민 가득 유자를 청으로 만나보세요! 환절기에 딱! 목감기에 딱! 건강한 유자로 맛있게 담근 청년 파머의 유자청",
@@ -482,6 +483,10 @@
         "price": 4000
       }
     ],
+=======
+    "sale_price": 0.8,
+    "origin": "경상남도",
+>>>>>>> a5fd301 (main rebase)
     "option": [
       {
         "id": 1,
@@ -498,6 +503,7 @@
     "is_best": true,
     "is_sold_out": true,
     "is_sale": true,
+<<<<<<< HEAD
     "is_visible": true,
     "sale_price": 52000,
     "message": "한 포로 챙기는 황금 사과! 꿀보다 더 달달한 생사과즙으로 아침식사대용, 간식대용으로 하루의 건강과 달콤함을 챙겨보세요!",
@@ -508,6 +514,10 @@
         "price": 4000
       }
     ],
+=======
+    "sale_price": 0.4,
+    "origin": "경상북도",
+>>>>>>> a5fd301 (main rebase)
     "option": [
       {
         "id": 1,
@@ -601,6 +611,7 @@
     "is_best": true,
     "is_sold_out": false,
     "is_sale": true,
+<<<<<<< HEAD
     "is_visible": true,
     "sale_price": 57000,
     "message": "감귤을 즐기는 색다른 방법! 상큼함과 달달함이 고루 담겨진 바삭한 감귤칩을 만나보세요. 영양은 그대로~ 언제 어디서나 맛 볼 수 있는 감귤과자!",
@@ -611,6 +622,10 @@
         "price": 5000
       }
     ],
+=======
+    "sale_price": 0.9,
+    "origin": "제주도",
+>>>>>>> a5fd301 (main rebase)
     "option": [
       {
         "id": 1,
@@ -844,6 +859,7 @@
     "is_best": true,
     "is_sold_out": false,
     "is_sale": false,
+<<<<<<< HEAD
     "is_visible": true,
     "sale_price": 40000,
     "message": "완도 바람 맞고 자란 비타민 가득 유자를 청으로 만나보세요! 환절기에 딱! 목감기에 딱! 건강한 유자로 맛있게 담근 청년 파머의 유자청",
@@ -854,6 +870,10 @@
         "price": 4000
       }
     ],
+=======
+    "sale_price": 0.75,
+    "origin": "충청남도",
+>>>>>>> a5fd301 (main rebase)
     "option": [
       {
         "id": 1,
