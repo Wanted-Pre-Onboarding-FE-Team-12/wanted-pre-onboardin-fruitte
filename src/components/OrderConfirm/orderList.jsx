@@ -19,7 +19,6 @@ import {
   ProductHeader,
   OrderIdWrap,
 } from './style';
-import { CONFIRM_DATA } from '../../constants/data/CONFIRM_DATA';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -41,12 +40,10 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const OrderList = () => {
+const OrderList = ({ goods }) => {
   const randomDate = (start, end) => {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
   };
-
-  const goods = CONFIRM_DATA;
 
   return (
     <TableContainer component={Paper} style={{ width: '1200px' }}>
@@ -71,6 +68,7 @@ const OrderList = () => {
             ></StyledTableCell>
           </TableRow>
         </TableHead>
+
         <TableBody>
           {goods?.map(
             ({ id, name, price, delivery_info, sale_price, imgUrl, option, is_best, is_sale }) => (
@@ -99,6 +97,7 @@ const OrderList = () => {
                     </CurrPrice>
                   </PriceWrap>
                 </StyledTableCell>
+
                 <StyledTableCell align="right">
                   <LabelWrap>
                     {is_best && <IsBest>BEST</IsBest>}
