@@ -8,7 +8,17 @@
 
 ## 팀원
 
-김재훈, 노기훈, 유지예, 이우윤, 백광현, [정진우](https://github.com/jinux127), 정현준
+
+| 이름                                   | 역할                                                                                               |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [김재훈](https://github.com/rmawogns)  | 관리 페이지 상품 삭제, 노출 여부 조정 기능 구현.                                                   |
+| [노기훈](https://github.com/ch4md0m)   | 관리자 상품 등록 페이지 구현, 초기 셋팅.                                                           |
+| [유지예](https://github.com/jiye-7)    | 상품 결제 페이지/상품 정보, 배송정보(도로 api 연동), 주문 요약, 결제 수단, 동의 및 결제 기능 구현. |
+| [이우윤](https://github.com/EEOOOO)    | 상품 상세 페이지 구현, 상품 옵션 입력 받아 주문 페이지 전달기능 구현.                              |
+| [백광현](https://github.com/ghbaekdev) | 상세, 주문 페이지에서 전달된 데이터를 바탕으로 주문 확인 페이지 구현.                              |
+| [정진우](https://github.com/jinux127)  | 관리페이지 페이지네이션, 스타일 적용.                                                              |
+| [정현준](https://github.com/wjd2676)   | 상품 리스트 페이지 구현, product.json 작성.       
+
 
 ## Tech Stack
 
@@ -36,7 +46,7 @@ npm run start
 
 ### 데모 링크
 
-### [🚀🚀 fruitte 보러가기](something_url)
+### [🚀🚀 fruitte 보러가기](https://bright-longma-5a20b7.netlify.app/)
 
 <br/>
 <br/>
